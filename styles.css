@@ -1,0 +1,32 @@
+
+h1
+{
+  padding: 1rem;
+
+}
+/* div
+{
+  width:100%
+} */
+a
+{
+  color:black;
+  text-decoration: none;
+}
+a::after
+{
+  color:black;
+  text-decoration: none;
+}
+.flex
+{
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 4vw;
+    padding: 0.5rem;
+  }
+
+}
