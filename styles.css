@@ -37,6 +37,9 @@ a::after
   grid-gap: 10px;
   padding: 5%;
 }
+#current-product {
+  display: flex;
+}
 
 .product {
   /* background-color: aqua; */
