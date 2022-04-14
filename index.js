@@ -21,17 +21,28 @@ function displayProducts() {
 
         let product_img = document.createElement('img');
         product_img.setAttribute('src', product.image);
+        product_img.setAttribute('id', 'product'+product.id)
+        
     
         let product_title = document.createElement('h3'); 
+        product_title.setAttribute('class', 'product-title')
         product_title.innerHTML = product.title;
 
         let product_price = document.createElement('h4');
         product_price.innerHTML = product.price;
 
-        product_card.append(product_img);
-        product_card.append(product_title);
-        product_card.append(product_price)
-        section.appendChild(product_card)
+        product_card.appendChild(product_img);
+        product_card.appendChild(product_title);
+        product_card.appendChild(product_price);
+        
+        for (let i=0; i<Math.round(product.rating.rate); i++) {
+            let star = document.createElement('i');
+            star.setAttribute('class', 'fa-solid fa-star');
+            product_card.appendChild(star);
+            
+        }
+
+        section.appendChild(product_card);
     });
 }
 

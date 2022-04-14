@@ -1,13 +1,12 @@
+body {
+  font-family: sans-serif;
+}
+
 
 h1
 {
   padding: 1rem;
-
 }
-/* div
-{
-  width:100%
-} */
 a
 {
   color:black;
@@ -29,6 +28,11 @@ a::after
     padding: 0.5rem;
   }
 
+}
+
+#detailed-product {
+  width: 0;
+  height: 0;
 }
 
 #products-section {
@@ -55,9 +59,24 @@ a::after
   object-fit: scale-down;
   margin: auto;
   text-align: center;
+  margin: 5%;
+}
+
+.product-title {
+  color: rgb(187, 19, 19);
+}
+
+.product > img:hover {
+  transform: scale(1.1);
+  transition: all .2s ease-in-out; 
 }
 
 .product > h4, h3 {
   text-align: left;
   width: 70%;
+}
+
+.fa-star {
+  float: left;
+  
 }
