@@ -39,8 +39,17 @@ function displayProducts() {
             let star = document.createElement('i');
             star.setAttribute('class', 'fa-solid fa-star');
             product_card.appendChild(star);
-            
         }
+        for (let i=0; i<5-Math.round(product.rating.rate); i++) {
+            let star = document.createElement('i');
+            star.setAttribute('class', 'fa-regular fa-star');
+            product_card.appendChild(star);
+        }
+
+        let review = document.createElement('span');
+        review.innerHTML = "&nbsp;" + product.rating.count + " reviews"
+        review.setAttribute('class', "review-count")
+        product_card.appendChild(review)
 
         section.appendChild(product_card);
     });
