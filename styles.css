@@ -13,24 +13,16 @@ a
   color:black;
   text-decoration: none;
 }
+button {
+  color:black;
+  border:none;
+  background:none;
+}
 a::after
 {
   color:black;
   text-decoration: none;
 }
-.flex
-{
-  display: flex;
-  justify-content: center;
-}
-@media screen and (max-width: 768px) {
-  h1{
-    font-size: 4vw;
-    padding: 0.5rem;
-  }
-
-}
-
 #products-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -41,6 +33,21 @@ a::after
   display: flex;
 }
 
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 4vw;
+    padding: 0.5rem;
+  }
+
+}
+.hidden {
+  display: none !important;
+}
+.flex
+{
+  display: flex;
+  justify-content: center;
+}
 .product {
   /* background-color: aqua; */
   width: 100%;
