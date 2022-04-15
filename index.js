@@ -1,3 +1,20 @@
+var menuCollapsed = true; 
+
+function menuClick() {
+    const menu = document.getElementById('menu');
+    
+    if (menuCollapsed) {
+        menu.style.maxHeight = "100%";
+        menuCollapsed = false;
+    } else {
+        menu.style.maxHeight = "0";
+        menuCollapsed = true;
+        
+    }
+    
+    
+}
+
 var mens_clothes;
 var womens_clothes;
 
@@ -29,6 +46,7 @@ function displayProducts() {
         product_title.innerHTML = product.title;
 
         let product_price = document.createElement('h4');
+        product_price.setAttribute('class', 'product-price');
         product_price.innerHTML = product.price;
 
         product_card.appendChild(product_img);
