@@ -74,6 +74,7 @@ function displayProducts() {
         let review = document.createElement('span');
         review.innerHTML = "&nbsp;" + product.rating.count + " reviews"
         review.setAttribute('class', "review-count")
+        review.setAttribute('id', product.id);
         productButton.appendChild(review)
 
         section.appendChild(productButton);
