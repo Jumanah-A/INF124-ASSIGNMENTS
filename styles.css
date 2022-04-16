@@ -26,6 +26,20 @@ h1
   height: 0;
 }
 
+}
+/* div
+{
+  width:100%
+} */
+button {
+  color:black;
+  border:none;
+  background:none;
+}
+a::after
+{
+  text-decoration: none;
+}
 #products-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -36,6 +50,21 @@ h1
   display: flex;
 }
 
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 4vw;
+    padding: 0.5rem;
+  }
+
+}
+.hidden {
+  display: none !important;
+}
+.flex
+{
+  display: flex;
+  justify-content: center;
+}
 .product {
   /* background-color: aqua; */
   width: 100%;
