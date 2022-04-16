@@ -20,13 +20,6 @@ h1
   display: flex;
   justify-content: center;
 }
-@media screen and (max-width: 768px) {
-  h1{
-    font-size: 4vw;
-    padding: 0.5rem;
-  }
-
-}
 
 #detailed-product {
   width: 0;
@@ -110,8 +103,8 @@ h1
   gap: 25px;
 }
 
-.list > a:visited {
-  color: black;
+.list a:visited {
+  color: white;
 }
 
 #toggler, .navbar label {
@@ -141,4 +134,9 @@ h1
   #toggler:checked ~ .menu {
     max-height: 100%;
   }
+
+  .navbar {
+    width: 100vw;
+  }
+  
 }
