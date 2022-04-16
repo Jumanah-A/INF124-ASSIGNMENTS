@@ -5,19 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <!-- <script type="module" src="index.js"></script>
-  <script type="module" src="data.js"></script> -->
+  <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
   <title>My E-Commerce</title>
 </head>
 <body>
-
-    <div class="nav-bar">
-      <div class="flex">
-        <a href="overview.html"><h1>Overview</h1></a>
-        <a href="products.html"><h1>Our Products</h1></a>
-        <a href="about-us.html"><h1>About Us</h1></a>
-        <a href="faq.html"><h1>FAQ</h1></a>
-      </div>
+  <div>
+    <div class="navbar">
+      <a  class="logo">Company</a>
+      <input type="checkbox" id="toggler">
+      <label for="toggler"><i class="fa-solid fa-bars"></i></label>
+      <div class="menu">
+        <ul class="list">
+          <li><a>About Us</a></li>
+          <li><a >FAQs</a></li>
+          
+          <!-- <li><a>Shopping Cart</a></li> -->
+        </ul>
+      </div> 
     </div>
     <div data-view="all-products" id="all-products-view" class="view">
       <div id="products-section"></div>
