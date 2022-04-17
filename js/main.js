@@ -3,13 +3,11 @@ import { handleProductClick } from "./index.js"
 displayProducts();
 function displayProducts() {
   let products = items;
-  // console.log(products)
   let section = document.getElementById('products-section');
   products.forEach((product) => {
-    let productButton = document.createElement('a');
-    productButton.setAttribute('href','../pages/product.html?id='+product.id);
-    productButton.setAttribute('class', 'product');
-    productButton.setAttribute('id', product.id)
+    let productCard = document.createElement('a');
+    productCard.setAttribute('href','../pages/product.html?id='+product.id);
+    productCard.setAttribute('class', 'product');
 
     let product_img = document.createElement('img');
     product_img.setAttribute('src', product.image);
@@ -18,36 +16,33 @@ function displayProducts() {
 
     let product_title = document.createElement('h3');
     product_title.setAttribute('class', 'product-title')
-    product_title.setAttribute('id', product.id);
     product_title.innerHTML = product.title;
 
     let product_price = document.createElement('h4');
     product_price.setAttribute('class', 'product-price');
-    product_price.setAttribute('id', product.id)
     product_price.innerHTML = product.price;
 
-    productButton.appendChild(product_img);
-    productButton.appendChild(product_title);
-    productButton.appendChild(product_price);
+    productCard.appendChild(product_img);
+    productCard.appendChild(product_title);
+    productCard.appendChild(product_price);
 
     for (let i = 0; i < Math.round(product.rating.rate); i++) {
       let star = document.createElement('i');
       star.setAttribute('class', 'fa-solid fa-star');
-      productButton.appendChild(star);
+      productCard.appendChild(star);
     }
     for (let i = 0; i < 5 - Math.round(product.rating.rate); i++) {
       let star = document.createElement('i');
       star.setAttribute('class', 'fa-regular fa-star');
-      productButton.appendChild(star);
+      productCard.appendChild(star);
     }
 
     let review = document.createElement('span');
     review.innerHTML = "&nbsp;" + product.rating.count + " reviews"
     review.setAttribute('class', "review-count")
-    review.setAttribute('id', product.id);
-    productButton.appendChild(review)
+    productCard.appendChild(review)
 
-    section.appendChild(productButton);
+    section.appendChild(productCard);
   });
 }
 
