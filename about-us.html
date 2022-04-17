@@ -6,24 +6,67 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Akshar:wght@400;500&family=Andada+Pro:wght@700&family=Inter:wght@700&display=swap"
+    rel="stylesheet">
   <title>About Us</title>
 </head>
 
 <body>
-  <div>
-    <div class="nav-bar">
-      <div class="flex">
-        <a href="overview.html"><h1>Overview</h1></a>
-        <a href="products.html"><h1>Our Products</h1></a>
-        <a href="about-us.html"><h1>About Us</h1></a>
-        <a href="faq.html"><h1>FAQ</h1></a>
+
+  <div class="navbar">
+    <a class="logo" href="index.html">FASHEND</a>
+    <input type="checkbox" id="toggler">
+    <label for="toggler"><i class="fa-solid fa-bars"></i></label>
+    <div class="menu">
+      <ul class="list">
+        <li><a class="nav-active">About Us</a></li>
+        <li><a class="nav-nonactive">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="about-us-title">
+    <div>
+      About Us
+      <br>
+      <a id="learn-more" href="#about-us-content">Read More</a>
+    </div>
+  </div>
+  <div id="about-us-content">
+    <div id="content">
+      <p id="overview"><em><b>FASHEND </b></em>&nbsp;was founded in April 2022. We pride ourselves in providing clothes
+        with quality material at affordable prices. Our mission is to deliver authentic products that offer superior
+        design and value to customers, while limiting unncessary harm to the environment.</p>
+      <hr>
+      <p>Meet The Team</p>
+      <div class="team">
+        <div class="team-card">
+          <img src="jumanah.png">
+          <p>Jumanah</p>
+          <p>Chief Executive Officer</p>
+        </div>
+        <div class="team-card">
+          <img src="kody.png">
+          <p>Kody</p>
+          <p>Marketing and Outreach</p>
+        </div>
+        <div class="team-card">
+          <img src="elvis.png">
+          <p>Elvis</p>
+          <p>Janitor</p>
+        </div>
       </div>
-      <div class="page">
-        <h1>content</h1>
-      </div>
+      
+      
+
     </div>
 
+
   </div>
+
 </body>
 
 </html>

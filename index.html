@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,47 +9,51 @@
   <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
   <title>My E-Commerce</title>
 </head>
+
 <body>
-  <div>
-    <div class="navbar">
-      <a  class="logo">Company</a>
-      <input type="checkbox" id="toggler">
-      <label for="toggler"><i class="fa-solid fa-bars"></i></label>
-      <div class="menu">
-        <ul class="list">
-          <li><a>About Us</a></li>
-          <li><a >FAQs</a></li>
-          
-          <!-- <li><a>Shopping Cart</a></li> -->
-        </ul>
-      </div> 
-    </div>
-    <div data-view="all-products" id="all-products-view" class="view">
-      <div id="products-section"></div>
-    </div>
-    <div data-view="current-product" id="current-product-view" class="view hidden">
-          <div>
-            <h1 class="product-name">Opna Women's Short Sleeve Moisture</h1>
-            <div id="current-product">
-              <div class="flex-half"><img class="product-image" name="product-image" src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg">
-              </div>
-              <div class="flex-half">
-                <!-- <h1 name="product-name">Opna Women's Short Sleeve Moisture</h1> -->
-                <p class="product-price">Price: $7.95</p>
-                <p class="product-rating">Rating: 4.5</p>
-                <p class="product-description">100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great
-                  Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away,
-                  Soft
-                  Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette
-                  and
-                  Added Comfort</p>
-              </div>
 
-            </div>
-
-          </div>
+  <div class="navbar">
+    <a class="logo" href="index.html">Company</a>
+    <input type="checkbox" id="toggler">
+    <label for="toggler"><i class="fa-solid fa-bars"></i></label>
+    <div class="menu">
+      <ul class="list">
+        <li><a class="nav-nonactive" href="about-us.html">About Us</a></li>
+        <li><a class="nav-nonactive">FAQs</a></li>
+      </ul>
     </div>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="data.js"></script>
+  </div>
+  <div data-view="all-products" id="all-products-view" class="view">
+    <div id="products-section"></div>
+  </div>
+  <div data-view="current-product" id="current-product-view" class="view hidden">
+    <div>
+      <h1 class="product-name">Opna Women's Short Sleeve Moisture</h1>
+      <div id="current-product">
+        <div class="flex-half"><img class="product-image" name="product-image"
+            src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg">
+        </div>
+        <div class="flex-half">
+          <!-- <h1 name="product-name">Opna Women's Short Sleeve Moisture</h1> -->
+          <p class="product-price">Price: $7.95</p>
+          <p class="product-rating">Rating: 4.5</p>
+          <p class="product-description">100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash &
+            Pre Shrunk for a Great
+            Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture
+            away,
+            Soft
+            Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine
+            silhouette
+            and
+            Added Comfort</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+  <script type="module" src="data.js"></script>
 </body>
+
 </html>
