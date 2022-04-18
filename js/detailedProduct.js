@@ -152,7 +152,7 @@ function displayProductDetails()
   orderButton.id = "order";
   orderButton.className = "orderButton";
   orderButton.addEventListener("click", function(){
-    window.location.href="/pages/form.html";
+    window.location.href="../pages/form.html";
     orderButton.disabled = true;
   });
 
