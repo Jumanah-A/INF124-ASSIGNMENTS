@@ -23,7 +23,7 @@ function displayProductDetails()
   orderButton.id = "order";
   orderButton.className = "orderButton";
   orderButton.addEventListener("click", function(){
-    displayForm();
+    window.location.href="/pages/form.html";
     orderButton.disabled = true;
   });
 

@@ -168,7 +168,8 @@ a::after
 .formRowLabel{
   padding: 10px;
   border-radius: 4px;
-  background-color: rgb(212, 224, 234);
+  margin: 10px;
+  background-color: rgb(157, 177, 195);
 }
 
 
