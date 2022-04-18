@@ -266,7 +266,7 @@ a::after
 }
 
 #about-us-content {
-  height: 100vh;
+  /* height: 100%; */
   font-weight: 400;
   font-size: 2em;
   font-family: 'Akshar', sans-serif;
@@ -411,4 +411,16 @@ a::after
 
 .product-rating, .product-description {
   margin-bottom: 3em;
+}
+
+#footer {
+  border-top: 1px solid black;
+  margin-top: auto;
+  text-align: center;
+}
+
+.page-container {
+  display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
