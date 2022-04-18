@@ -23,3 +23,5 @@ https://github.com/Jumanah-A/INF124-ASSIGNMENTS
 - [9] The **Home Page (index.html)** follows style rules. The navbar on each page follows the navbar style rules.
 - [10] Every page is responsive and mobile-friendly
 - [11] Images on the **Home Page (index.html)** and detailed description pages provides image resizing on mouse movement. 
+
+## Group member names are printed on about us page. 
