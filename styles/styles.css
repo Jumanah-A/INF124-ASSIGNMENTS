@@ -253,10 +253,20 @@ a::after
   font-size: 30px;
   font-family: 'Akshar', sans-serif;
   padding: 10px;
+  transition: all .2s ease-in-out;
+}
+
+#learn-more:hover {
+  /* background-color: rgb(58, 180, 211); */
+  border: 1px solid rgb(66, 202, 236);
+  /* color: #181a25; */
+  color: rgb(66, 199, 233);
+  transition: all .2s ease-in-out;
+  
 }
 
 #about-us-content {
-
+  height: 100vh;
   font-weight: 400;
   font-size: 2em;
   font-family: 'Akshar', sans-serif;
