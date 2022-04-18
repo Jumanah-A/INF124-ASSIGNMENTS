@@ -3,7 +3,7 @@ var items = [
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "price": 109.95,
-    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday essentials in the main compartment, and your keys and small essentials in the front zippered pocket (which can be accessed without opening the top).",
     "category": "men's clothing",
     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     "rating": {
@@ -14,7 +14,7 @@ var items = [
   {
     "id": 2,
     "title": "Mens Casual Premium Slim Fit T-Shirts ",
-    "price": 22.3,
+    "price": 22.30,
     "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
     "category": "men's clothing",
     "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -133,9 +133,17 @@ function displayProductDetails()
     }
   }
 
-  document.querySelector('.product-price').innerHTML = "Price: $" + current.price;
-  document.querySelector('.product-rating').innerHTML = "Rating: " + current.rating.rate;
-  document.querySelector('.product-description').innerHTML = "Description: " + current.description;
+  document.querySelector('.product-price').innerHTML = "$" + current.price;
+  let stars = "";
+  for (let i = 0; i < Math.round(current.rating.rate); i++) {
+    stars += '<i class="fa-solid fa-star"></i>';
+  }
+  for (let i = 0; i < 5 - Math.round(current.rating.rate); i++) {
+    stars += '<i class="fa-regular fa-star"></i>';
+  }
+  document.querySelector('.product-rating').innerHTML = stars + " (" + current.rating.count + " reviews)";
+  console.log(current)
+  document.querySelector('.product-description').innerHTML = current.description;
   document.querySelector('.product-name').innerHTML = current.title;
   document.querySelector('.product-image').setAttribute('src', current.image);
 
@@ -148,7 +156,7 @@ function displayProductDetails()
     orderButton.disabled = true;
   });
 
-  document.body.append(orderButton);
+  document.getElementById("product-info").append(orderButton);
 
 }
 
