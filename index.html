@@ -5,9 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css">
   <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
   <title>My E-Commerce</title>
+      <script type="module" src="js/index.js"></script>
+      <script type="module" src="js/data.js"></script>
+      <script type="module" src="js/main.js"></script>
+      <script type="module" src="js/form.js"></script>
 </head>
 
 <body>
@@ -18,42 +22,14 @@
     <label for="toggler"><i class="fa-solid fa-bars"></i></label>
     <div class="menu">
       <ul class="list">
-        <li><a class="nav-nonactive" href="about-us.html">About Us</a></li>
-        <li><a class="nav-nonactive" href="faq.html">FAQs</a></li>
+        <li><a class="nav-nonactive" href="pages/about-us.html">About Us</a></li>
+        <li><a class="nav-nonactive" href="pages/faq.html">FAQs</a></li>
       </ul>
     </div>
   </div>
   <div data-view="all-products" id="all-products-view" class="view">
     <div id="products-section"></div>
   </div>
-  <div data-view="current-product" id="current-product-view" class="view hidden">
-    <div>
-      <h1 class="product-name">Opna Women's Short Sleeve Moisture</h1>
-      <div id="current-product">
-        <div class="flex-half"><img class="product-image" name="product-image"
-            src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg">
-        </div>
-        <div class="flex-half">
-          <!-- <h1 name="product-name">Opna Women's Short Sleeve Moisture</h1> -->
-          <p class="product-price">Price: $7.95</p>
-          <p class="product-rating">Rating: 4.5</p>
-          <p class="product-description">100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash &
-            Pre Shrunk for a Great
-            Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture
-            away,
-            Soft
-            Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine
-            silhouette
-            and
-            Added Comfort</p>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-  <script type="module" src="index.js"></script>
-  <script type="module" src="data.js"></script>
-</body>
-
+  <div id="products-section"></div>
+  <div>
 </html>
