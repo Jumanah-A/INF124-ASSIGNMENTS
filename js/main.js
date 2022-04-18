@@ -1,5 +1,5 @@
 import { items } from "./data.js";
-import { handleProductClick } from "./index.js"
+import { handleFormClick, handleProductClick } from "./index.js";
 displayProducts();
 function displayProducts() {
   let products = items;
@@ -56,3 +56,4 @@ document.getElementById('17').addEventListener('click', handleProductClick);
 document.getElementById('18').addEventListener('click', handleProductClick);
 document.getElementById('19').addEventListener('click', handleProductClick);
 document.getElementById('20').addEventListener('click', handleProductClick);
+
