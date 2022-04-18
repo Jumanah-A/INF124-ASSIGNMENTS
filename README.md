@@ -27,5 +27,6 @@ https://github.com/Jumanah-A/INF124-ASSIGNMENTS
 ## Group member names are printed in the footer of every page
 
 ## Reference
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#validation
+Telephone Input - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel
+
+Email Input - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#validation
