@@ -24,7 +24,7 @@
   </div>
 
   <form>
-    <div>
+    <div class="row">
       <h2>Payment / Shipping Information</h2>
       
 
@@ -76,8 +76,17 @@
       <label for="cardName" class="formRowLabel"><i class="fa-solid fa-credit-card"> Name on Card</i></label>
       <input required type="text" name="cardName" placeholder="johndoe@mail.com"/>
     </div>
-
     
+    <div>
+      <label for="cardNum" class="formRowLabel"><i class="fa-solid fa-credit-card"> Card Number</i></label>
+      <input required type="text" name="cardNum" placeholder="XXXX XXXX XXXX"/>
+
+      <label for="exp" class="formRowLabel"><i class="fa-solid fa-caret-right"> Expiration</i></label>
+      <input required type="text" name="exp" placeholder="MM/YY" />
+
+      <label for="cvv" class="formRowLabel"><i class="fa-solid fa-caret-right"> CVV</i></label>
+      <input required type="text" name="cvv" placeholder="000" size="1"/>
+    </div>
     
   </form>
 
