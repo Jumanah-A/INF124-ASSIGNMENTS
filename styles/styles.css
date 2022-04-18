@@ -488,3 +488,16 @@ a::after
   padding: 2em;
   display: none;
 }
+
+@media screen and (max-width: 600px) {
+  #form, #form-grid, #form input,
+  #form select, #form input:focus, #form div, #form #submit{
+    width: 90%;
+    margin: 20px;
+  }
+
+  #form-container{
+    width: 100%;
+    margin: 10px;
+  }
+}
