@@ -25,3 +25,8 @@ https://github.com/Jumanah-A/INF124-ASSIGNMENTS
 - [11] Images on the **Home Page (index.html)** and detailed description pages provides image resizing on mouse movement. 
 
 ## Group member names are printed in the footer of every page
+
+## Reference
+Telephone Input - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel
+
+Email Input - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#validation

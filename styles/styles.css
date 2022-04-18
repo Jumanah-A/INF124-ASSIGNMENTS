@@ -424,3 +424,67 @@ a::after
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* form */
+#form {
+  
+  /* border: 1px solid black; */
+  padding: 1em;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(235, 235, 235);
+}
+
+#form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  
+}
+
+#form-container {
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+}
+
+#form input {
+  width: 90%;
+  padding: 12px;
+  /* border-radius: 10px; */
+  border-style: solid;
+  margin-top: 10px;
+}
+
+#form select {
+  width: 90%;
+  padding: 12px;
+  /* border-radius: 10px; */
+  border-style: solid;
+  margin-top: 10px;
+}
+
+#form input:focus {
+  outline: 2px solid rgb(54, 121, 247);
+  border: none;
+}
+
+#form div {
+  margin-bottom: 1em;
+}
+
+#form #submit {
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 25px;
+  width: 100%;
+}
+
+#submitted {
+  text-align: center;
+  border: 1px solid green;
+  width:max-content;
+  margin: 0 auto;
+  padding: 2em;
+  display: none;
+}
