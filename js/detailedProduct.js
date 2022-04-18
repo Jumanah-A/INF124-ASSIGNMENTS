@@ -90,6 +90,7 @@ function displayForm(){
   nameInput.type = "text";
   nameInput.placeholder = "John Doe";
   nameInput.classList.add("class", "formRowOne");
+  nameInput.classList.add("required");
 
   let email = document.createElement("label");
   email.className = "fa fa-envelope";
