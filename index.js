@@ -29,7 +29,14 @@ function menuClick() {
 //                 .then(newJson => womens_clothes = newJson)
 //                 .then(displayProducts)
 //             )
+var script = document.createElement('script');
+script.src = 'data.json?callback=foo'
 
+document.getElementsByTagName('head')[0].appendChild(script);
+
+function foo(data) {
+  console.log(data)
+}
 
 displayProducts();
 function displayProducts() {
