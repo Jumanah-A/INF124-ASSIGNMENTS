@@ -137,12 +137,12 @@ function menuClick() {
 
 var targetId;
 
-export function handleProductClick(event){
+function handleProductClick(event){
   displayProductDetails(event.target.id)
   targetId = event.targetId
 }
 
-export function handleFormClick(event){
+function handleFormClick(event){
   displayForm(targetId);
 }
 
@@ -164,8 +164,9 @@ function displayProductDetails(productId) {
 
 function displayForm(productId) {
   var current;
+  let pId = window.location.href.split('=')[1];
   for (var i = 0; i < 10; i++) {
-    if (String(items[i].id) === String(productId)) {
+    if (String(items[i].id) === String(pId)) {
       current = items[i];
       break;
     }

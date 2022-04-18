@@ -44,7 +44,7 @@ a::after
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 10px;
   padding: 5%;
-  
+
 }
 #current-product {
   display: flex;
@@ -70,8 +70,8 @@ a::after
   height: 100%;
   text-align: center;
   border-bottom: 1px solid rgb(54, 54, 54);
-  
-  
+
+
   padding: 1rem;
 
 }
@@ -122,7 +122,7 @@ a::after
   justify-content: space-between;
   padding: 15px;
   background-color: #181a25;
-  
+
 }
 
 .list {
@@ -139,7 +139,7 @@ a::after
 .nav-active {
   /* color: rgb(58, 180, 211) */
   color: #68db85;
-  
+
 }
 
 .nav-nonactive, .logo {
@@ -170,7 +170,7 @@ a::after
   font-size: 16px;
   cursor: pointer;
   border-radius: 12px;
-  
+
 }
 
 .orderButton:hover{
@@ -269,7 +269,7 @@ a::after
 }
 
 #about-us-content > #overview {
-  
+
   text-align: left;
   /* background-color: gray; */
 
@@ -326,7 +326,7 @@ a::after
   #about-us-content {
     padding: 1em;
   }
-  
+
   .team-card {
     padding: 0.5em;
     margin-bottom: 1em;

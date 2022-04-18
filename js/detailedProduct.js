@@ -121,8 +121,6 @@ var items = [
   }
 ];
 
-console.log("test")
-
 displayProductDetails()
 function displayProductDetails()
 {
@@ -151,7 +149,7 @@ function displayProductDetails()
   });
 
   document.body.append(orderButton);
-  
+
 }
 
 function displayForm(){
@@ -160,7 +158,7 @@ function displayForm(){
   quantity.name = "quantity";
   quantity.id = "quantity"
   quantity.class = "formRowOne"
- 
+
     for (var i = 1; i < 8; i++)
     {
         var option = document.createElement("option");
@@ -168,12 +166,12 @@ function displayForm(){
         option.text = i;
         quantity.appendChild(option);
     }
-  
+
   let quantityText = document.createElement("h3");
   quantityText.innerHTML = "Quantity / Shipping";
   quantityText.class = "formRowOne";
   document.body.appendChild(quantityText)
-  document.body.append(quantity);  
+  document.body.append(quantity);
 
   let shipping = document.createElement("label");
   shipping.className = "fa-solid fa-fast-truck";
@@ -198,8 +196,8 @@ function displayForm(){
   document.body.append(shipping);
   document.body.append(shippingInput);
 
-  
-  
+
+
   let bill = document.createElement("h3");
   bill.innerHTML = "Billing Information";
   bill.class = "formRowOne";
@@ -250,7 +248,7 @@ function displayForm(){
   contactText.innerHTML = "Contact Information";
   contactText.class = "formRowOne";
 
-  
+
 
   document.body.append(bill);
   document.body.append(username);
@@ -267,7 +265,7 @@ function displayForm(){
   paymentText.innerHTML = "Payment";
   paymentText.class = "formRowOne";
   document.body.appendChild(paymentText)
-  
+
   let cName = document.createElement("label");
   cName.innerHTML = " Name on Card";
   cName.className = "fa-solid fa-credit-card";
@@ -287,7 +285,7 @@ function displayForm(){
   cNumberInput.type = "text";
   cNumberInput.placeholder = "XXXX XXXX XXXX";
   cNumberInput.classList.add("class", "formRowOne");
-  
+
   let exp = document.createElement("label");
   exp.innerHTML = " Expiration";
   exp.className = "fa-solid fa-caret-right";
@@ -307,7 +305,7 @@ function displayForm(){
   cvvInput.type = "text";
   cvvInput.placeholder = "000";
   cvvInput.classList.add("class", "formRowOne");
-  
+
   document.body.append(cName);
   document.body.append(cNameInput);
   document.body.append(cNumber);
@@ -357,7 +355,7 @@ function displayForm(){
       alert("Invalid phone number");
       return;
     }
-    
+
     if (parseInt(cNumberInput) < 0 | cNumberInput.value.length < 12){
       alert("Invalid card number");
       return;
@@ -384,5 +382,5 @@ function displayForm(){
   });
 
   document.body.append(submitButton);
-  
+
 }

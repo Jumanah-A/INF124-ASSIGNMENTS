@@ -120,14 +120,23 @@ var items = [
     }
   }
 ];
-import { handleFormClick, handleProductClick } from "./index.js";
+
+function handleProductClick(event) {
+  displayProductDetails(event.target.id)
+  targetId = event.targetId
+}
+
+function handleFormClick(event) {
+  displayForm(targetId);
+}
+
 displayProducts();
 function displayProducts() {
   let products = items;
   let section = document.getElementById('products-section');
   products.forEach((product) => {
     let productCard = document.createElement('a');
-    productCard.setAttribute('href','../pages/product.html?id='+product.id);
+    productCard.setAttribute('href','./pages/product.html?id='+product.id);
     productCard.setAttribute('class', 'product');
 
     let product_img = document.createElement('img');
@@ -177,4 +186,3 @@ document.getElementById('17').addEventListener('click', handleProductClick);
 document.getElementById('18').addEventListener('click', handleProductClick);
 document.getElementById('19').addEventListener('click', handleProductClick);
 document.getElementById('20').addEventListener('click', handleProductClick);
-
