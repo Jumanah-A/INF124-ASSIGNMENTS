@@ -501,3 +501,27 @@ html{
       margin: 10px;
     }
   }
+
+
+
+#last-orders {
+  border-top: 1px solid black;
+  padding: 1em;
+}
+
+
+.past-order {
+  border: 1px solid black;
+  border-radius: 25px;
+  margin: 1em;
+  padding: 1em;
+}
+
+.past-order .fa-star {
+  color: green;
+}
+
+#rating-button {
+  border-radius: 25px;
+  border: 1px solid black;
+}
