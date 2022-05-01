@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <style>
+        .star_input {
+            display: none;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+
+        .rating label {
+            position: relative;
+            font-size: 3em;
+            color: green;
+            cursor: pointer;
+        }
+
+        .rating label::before {
+            content: "\2605";
+            position: absolute;
+            opacity: 0;
+        }
+
+        .rating label:hover:before,
+        .rating label:hover~label:before {
+            opacity: 1 !important;
+        }
+
+        .rating input:checked~label:before {
+            opacity: 1;
+        }
+
+        .star:hover input:checked~label:before {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        function processOrder(){
+            let status = document.querySelector('input[name="rating"]:checked')
+            if (status === null) {
+                console.log("0")
+            } else {
+                let rate = document.querySelector('input[name="rating"]:checked').value;
+                console.log(rate)
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class='navbar'>
+        <a class='logo'>Fashend</a>
+        <input type="checkbox" id="toggler">
+        <label for="toggler"><i class="fa-solid fa-bars"></i></label>
+        <div class="menu">
+          <ul class="list">
+            <li><a class="nav-nonactive" href="pages/about-us.html">About Us</a></li>
+            <li><a class="nav-nonactive" href="pages/faq.html">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+    <form class="rating"  action="javascript:void(0);" onsubmit="processOrder()">
+            <input class='star_input' type='radio' name='rating' class='star' value='5' id='5'><label for='5'>&star;</label>
+            <input class='star_input' type='radio' name='rating' class='star' value='4' id='4'><label for='4'>&star;</label>
+            <input class='star_input' type='radio' name='rating' class='star' value='3' id='3'><label for='3'>&star;</label>
+            <input class='star_input' type='radio' name='rating' class='star' value='2' id='2'><label for='2'>&star;</label>
+            <input class='star_input' type='radio' name='rating' class='star' value='1' id='1'><label for='1'>&star;</label>
+            <button type='submit'>Submit</button>
+    </form>
+    
+</body>
+
+</html>

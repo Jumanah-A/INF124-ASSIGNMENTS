@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,8 +33,11 @@ public class ProductServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery(sql);
 
             PrintWriter writer = resp.getWriter();
-            writer.println("<html><head><link rel='stylesheet' href='styles.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
+
+            writer.println("<html><head><link rel='stylesheet' href='styles.css'><link rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
+            writer.println("<div class='navbar'><a class='logo'>Fashend</a></div>");
             writer.println("<div id='products-section'>");
+            System.out.println("PRODUCTS SERVLET");
             while(rs.next()){
 
                 String id = rs.getString("id");
@@ -48,7 +52,7 @@ public class ProductServlet extends HttpServlet {
                 writer.println("<div class='product' id='" + id + "'>");
                 writer.println("<img src='" + image + "' id='" + id + "'>");
                 writer.println("<h3 class='product-title' id='" + id + "'>" + title + "</h3>");
-                writer.println("<h4 class='product-price'>" + price + "</h4>");
+                // writer.println("<h4 class='product-price'>" + price + "</h4>");
 
                 for (int i=0; i<rate; i++) {
                     writer.println("<i class='fa-solid fa-star'></i>");
@@ -65,6 +69,10 @@ public class ProductServlet extends HttpServlet {
             }
             writer.println("</div>");
             writer.println("</body> </html> ");
+            con.close();
+
+            RequestDispatcher rd=req.getRequestDispatcher("./lastfive");
+            rd.include(req, resp);
         }
         catch(ClassNotFoundException e){
             e.printStackTrace();
