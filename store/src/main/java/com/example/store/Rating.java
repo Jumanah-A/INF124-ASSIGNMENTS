@@ -32,7 +32,7 @@ public class Rating extends HttpServlet {
         System.out.println("RATINGS SERVLET");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "kingstoneGX911");
+            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "database101");
             con.setAutoCommit(false);
             Statement stmt = con.createStatement();
             String rating = req.getParameter("range");
@@ -45,7 +45,7 @@ public class Rating extends HttpServlet {
 
             PrintWriter writer = resp.getWriter();
             // writer.println("<html> <body>");
-            
+
             writer.println("<h3>" + rating + "was submitted </h3>");
             // writer.println("</body> </html> ");
             resp.sendRedirect("/store");
@@ -55,8 +55,8 @@ public class Rating extends HttpServlet {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
-        
+
+
 
     }
 }
