@@ -129,6 +129,10 @@ html{
     cursor: pointer;
     font-size: 1.2em;
   }
+
+  .navbar a:visited {
+    color: white;
+  }
   
   .nav-active {
     /* color: rgb(58, 180, 211) */
@@ -444,7 +448,6 @@ html{
   #form-container {
     width: 100%;
     margin: 0 auto;
-    display: none;
   }
   
   #form input {

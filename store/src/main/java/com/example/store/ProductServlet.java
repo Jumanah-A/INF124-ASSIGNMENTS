@@ -27,7 +27,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "database101");
+            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "kingstoneGX911");
             Statement stmt = con.createStatement();
             String sql = "SELECT * FROM products";
             ResultSet rs = stmt.executeQuery(sql);
@@ -35,7 +35,7 @@ public class ProductServlet extends HttpServlet {
             PrintWriter writer = resp.getWriter();
 
             writer.println("<html><head><link rel='stylesheet' href='styles.css'><link rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
-            writer.println("<div class='navbar'><a class='logo'>Fashend</a></div>");
+            writer.println("<div class='navbar'><a class='logo'>Fashend</a><a href='checkout'>Checkout</a></div>");
             writer.println("<div id='products-section'>");
             System.out.println("PRODUCTS SERVLET");
             while(rs.next()){
