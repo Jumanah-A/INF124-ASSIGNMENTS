@@ -50,9 +50,9 @@ public class ProductServlet extends HttpServlet {
                 String count = rs.getString("count");
                 String details = "./details?name="+id;
 
-                writer.println("<div class='product' id='" + id + "'>");
+                writer.println("<a class='product' id='" + id + "'href='" + details +"'>");
                 // writer.println("<img src='" + image + "' id='" + id + "'>");
-                writer.println("<a href='" + details +"'>"+"<img src='" + image + "' id='" + id + "'></a>");
+                writer.println("<img src='" + image + "' id='" + id + "'>");
                 writer.println("<h3 class='product-title' id='" + id + "'>" + title + "</h3>");
                 // writer.println("<h4 class='product-price'>" + price + "</h4>");
 
@@ -66,11 +66,10 @@ public class ProductServlet extends HttpServlet {
 
                 writer.println("<span class='review-count'>  " + count + " reviews</span>");
 
-                writer.println("</div>");
+                writer.println("</a>");
 
             }
-            writer.println("</div>");
-            writer.println("</body> </html> ");
+            writer.println("</div></body> </html> ");
             con.close();
 
             RequestDispatcher rd=req.getRequestDispatcher("./lastfive");

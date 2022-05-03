@@ -29,7 +29,7 @@ public class LatestOrders extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "database101");
+                    "kingstoneGX911");
             Statement stmt = con.createStatement();
             Statement product_stmt = con.createStatement();
             String sql = "SELECT * FROM orders";

@@ -30,7 +30,7 @@ public class detailedProduct extends HttpServlet{
         writer.println("<html><head><link rel='stylesheet' href='styles.css'><link rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
         String productId = req.getQueryString().split("=")[1];
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root","database101");
+        Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root","kingstoneGX911");
         Statement stmt = con.createStatement();
         String sql = "SELECT * FROM products WHERE id="+productId+";";
 
