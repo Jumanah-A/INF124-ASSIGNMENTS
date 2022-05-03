@@ -48,9 +48,11 @@ public class ProductServlet extends HttpServlet {
                 String image = rs.getString("image");
                 int rate = rs.getInt("rate");
                 String count = rs.getString("count");
+                String details = "./details?name="+id;
 
                 writer.println("<div class='product' id='" + id + "'>");
-                writer.println("<img src='" + image + "' id='" + id + "'>");
+                // writer.println("<img src='" + image + "' id='" + id + "'>");
+                writer.println("<a href='" + details +"'>"+"<img src='" + image + "' id='" + id + "'></a>");
                 writer.println("<h3 class='product-title' id='" + id + "'>" + title + "</h3>");
                 // writer.println("<h4 class='product-price'>" + price + "</h4>");
 

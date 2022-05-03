@@ -29,7 +29,7 @@ public class LatestOrders extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             Statement stmt = con.createStatement();
             Statement product_stmt = con.createStatement();
             String sql = "SELECT * FROM orders";
@@ -57,19 +57,19 @@ public class LatestOrders extends HttpServlet {
 
                     writer.println("<h4>" + title + "</h4>");
                     writer.println("<p>Total: " + price + "</p>");
-                    
+
                     writer.println("<p>Your Rating:");
                     for (int i=0; i<rating; i++) {
                         writer.println("<i class='fa-solid fa-star'></i>");
                     }
-    
+
                     for (int i=0; i<5-rating; i++) {
                         writer.println("<i class='fa-regular fa-star'></i>");
                     }
                     writer.println("</p>");
                 }
                 product_rs.close();
-                
+
                 writer.println("</br>Submit new rating:");
                 writer.println("<form class='rating'  action='./rating' method='post' oninput='rangevalue"+".value = range"+".valueAsNumber'>");
                 writer.println("<input class='rate' type='range' min='1' max='5' name='range"+"' value='1'>");
