@@ -10,7 +10,6 @@
     </head>
     <body>
 
-        <p>${requestScope.name}</p>
         <div id="form-container">
             <form id="form" name="orderForm"  action="javascript:void(0);" onsubmit="processOrder()">
               <div id="form-grid">
@@ -35,34 +34,40 @@
       
                 <div>
                   <label for="phone">Phone number:<small>123-456-7890</small></label>
+                  <br>
                   <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                 </div>
                 <div>
                   <label for="email">Email Address</label>
+                  <br>
                   <input id="email" type="text" name="email" pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required>
                 </div>
                 <div>
                   <label for="address">Street Address: 123 N Main Street</label>
+                  <br>
                   <input id="address" type="text" name="address" pattern="[0-9]+\s[a-zA-Z\s]+" required>
                 </div>
       
                 <div>
                   <label for="city">City</label>
+                  <br>
                   <input type="text" id="city" name="city" pattern="[a-zA-Z\s]+" required>
                 </div>
       
                 <div>
                   <label for="zipcode">Zipcode</label>
+                  <br>
                   <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" required>
                 </div>
       
                 <div>
                   <label for="state">State</label>
+                  <br>
                   <input type="text" id="state" name="state" pattern="[a-zA-Z\s]+" required>
                 </div>
       
                 <div>
-                  <label for="shipping">Shipping</label>
+                  <label for="shipping">Shipping</label><br>
                   <select name="shipping" id="shipping" onchange="updatePrice()">
                     <option value="standard" selected="selected">Standard (Free)</option>
                     <option value="overnight" >Overnight ($10)</option>
@@ -72,14 +77,13 @@
       
                 <div>
                   <label for="credit-card">Credit Card: <small>1234-1234-1234-1234</small></label>
+                  <br>
                   <input type="text" id="credit-card" name="credit-card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
                 </div>
       
       
               </div>
-      
-      
-              <p id="price"></p>
+
               <input type="submit" value="Send Order" id="submit">
             </form>
           </div>

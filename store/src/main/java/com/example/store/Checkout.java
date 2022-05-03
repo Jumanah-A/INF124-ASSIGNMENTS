@@ -27,7 +27,9 @@ public class Checkout extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("name", "value");
         System.out.println(req.getAttribute("name"));
+        PrintWriter writer =resp.getWriter();
+        writer.println("<h1>TEST</h1>");
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/checkout.jsp");
-        rd.forward(req, resp);
+        rd.include(req, resp);
     }
 }
