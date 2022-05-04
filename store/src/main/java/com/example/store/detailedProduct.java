@@ -42,7 +42,7 @@ public class DetailedProduct extends HttpServlet{
           String image = rs.getString("image");
           int rate = rs.getInt("rate");
 
-          writer.println("<div class='navbar'><a class='logo'>Fashend</a></div>");
+          writer.println("<div class='navbar'><a href='products' class='logo'>Fashend</a><a href='checkout'>Checkout</a></div>");
           writer.println(
               "<div name='current-product-structure' id='current-product-container'><div id='current-product'><div class='flex-half'>");
           writer.println("<img class='product-image' name='product-image' src=" + image

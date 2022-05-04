@@ -28,8 +28,10 @@ public class Checkout extends HttpServlet {
         req.setAttribute("name", "value");
         System.out.println(req.getAttribute("name"));
         PrintWriter writer =resp.getWriter();
-        writer.println("<h1>TEST</h1>");
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/checkout.jsp");
+        // writer.println("<h1>TEST</h1>");
+        writer.println("<div class='navbar'><a href='products' class='logo'>Fashend</a><a href='checkout'>Checkout</a></div>");
+
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/checkout.html");
         rd.include(req, resp);
     }
 }
