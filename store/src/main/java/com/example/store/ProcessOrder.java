@@ -67,7 +67,7 @@ public class ProcessOrder extends HttpServlet {
             }
 
             RequestDispatcher rd=req.getRequestDispatcher("./orderDetails");
-            rd.include(req, resp);
+            rd.forward(req, resp);
             
 
         } catch (ClassNotFoundException e) {
