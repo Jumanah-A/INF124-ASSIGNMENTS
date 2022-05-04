@@ -24,17 +24,8 @@
     </div>
   </div> -->
   <div id="form-container">
-    <form id="form" name="orderForm" action="javascript:void(0);" onsubmit="processOrder()">
+    <form id="form" name="orderForm" action="processOrder" method="POST">
       <div id="form-grid">
-        <div><label for="item">Item</label>
-          <br>
-          <input type="text" name="item" id="item" readonly>
-        </div>
-        <div><label for="quantity">Quantity</label>
-          <br>
-          <input type="number" name="quantity" id="quantity" value="1" min="1" max="30" step="1"
-            onchange="updatePrice()" required>
-        </div>
         <div><label for="fname"><i class="fa fa-user"></i> First Name:</label>
           <br>
           <input type="text" id="fname" name="fname">

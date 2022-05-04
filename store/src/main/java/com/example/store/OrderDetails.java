@@ -5,23 +5,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.cj.xdevapi.PreparableStatement;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.*;
+import javax.servlet.http.HttpSession;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
-@WebServlet(name = "checkout", value = "/checkout")
-public class Checkout extends HttpServlet {
+@WebServlet(name = "orderDetails", value = "/orderDetails")
+public class OrderDetails extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
@@ -29,18 +33,39 @@ public class Checkout extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("name", "value");
-        System.out.println(req.getAttribute("name"));
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
-        // writer.println("<h1>TEST</h1>");
+
+        String first = req.getParameter("fname");
+        String last = req.getParameter("lname");
+        String phone = req.getParameter("lname");
+        String email = req.getParameter("email");
+        String address = req.getParameter("address");
+        String city = req.getParameter("city");
+        String zipcode = req.getParameter("zipcode");
+        String state = req.getParameter("state");
+        String shipping = req.getParameter("shipping");
+        String creditCard = req.getParameter("credit-card");
 
         writer.println(
+                "<html><head><link rel='stylesheet' href='styles.css'><link rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
+        writer.println(
                 "<div class='navbar'><a href='products' class='logo'>Fashend</a><a href='checkout'>Checkout</a></div>");
+        writer.println("<div id='confirmation'>");
+        writer.println("<h1>Order Submitted!</h1>");
+        writer.println("<hr>");
+        writer.println("<h2>Order Summary: </h2>");
+        writer.println("<p>Hi " + first + " " + last + ",</p>");
+        writer.println("<p>Thank you for your order! Your order has been confirmed and will be shipping soon!</p>");
+        writer.println("<br><br>");
+        writer.println("<p>Email: " + email + "</p>");
+        writer.println("<p>Address: " + address + " " + city + " " + zipcode + " " + state + "</p>");
+        writer.println("<p>Shipping Method: " + shipping + "</p>");
+        writer.println("<p>Credit Card: xxxx-xxxx-xxxx-" + creditCard.split("-")[2] + " </p>");
 
         HttpSession session = req.getSession();
 
-        //Place items into dictionary so we can find the quantity of each item in cart
+        // Place items into dictionary so we can find the quantity of each item in cart
         List<String> cartlist = (ArrayList<String>) session.getAttribute("cart");
         HashMap<String, Integer> items = new HashMap<String, Integer>();
         if (cartlist != null) {
@@ -55,11 +80,9 @@ public class Checkout extends HttpServlet {
         }
         Double totalPrice = 0.0;
 
-        System.out.println(items);
-        
         writer.println("<div id='cart-container'>");
-        writer.println("<h2>Shopping Cart</h2>");
-        //Acces database to get product information and print it out
+        writer.println("<h2>Your Items</h2>");
+        // Acces database to get product information and print it out
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
@@ -74,7 +97,7 @@ public class Checkout extends HttpServlet {
                     String title = rs.getString("title");
                     String image = rs.getString("image");
                     Double price = rs.getDouble("price");
-                    
+
                     Double quantityPrice = items.get(item) * price;
                     totalPrice += quantityPrice;
 
@@ -87,21 +110,28 @@ public class Checkout extends HttpServlet {
                     writer.println("<p>Quantity: " + items.get(item) + "</p>");
                     writer.println("</div>");
                     writer.println("<div class='cart-item-price'>");
-                    writer.printf("<h3>$%.2f</h3>", quantityPrice);
+                    writer.printf("<h3>Price: $%.2f</h3>", quantityPrice);
+
                     writer.println("</div>");
                     writer.println("</div>");
-                    // writer.println("<h4 class='product-price'>" + price + "</h4>");
                 }
             }
+            double shippingCost = 0.0;
+            if (shipping.equals("overnight")) {
+                shippingCost = 10.0;
+            } else if (shipping.equals("expedited")) {
+                shippingCost = 7.0;
+            }
+            writer.printf("<h3 class='detailPrices'>Shipping: $%.2f</h3>", shippingCost);
+            writer.printf("<h3 class='detailPrices'>Total: $%.2f</h3>", shippingCost + totalPrice);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        writer.printf("<h3 id='total-price  '>Total Price: $%.2f</h3>", totalPrice);
-        writer.println("</div>");
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/checkout.html");
-        rd.include(req, resp);
+
+        writer.println("</div></body></html>");
+
     }
 }

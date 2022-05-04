@@ -582,3 +582,13 @@ h3 {
 .cart-item img {
   height: 15vh;
 }
+
+#confirmation {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.detailPrices {
+  width: 100%;
+  text-align: right;
+}

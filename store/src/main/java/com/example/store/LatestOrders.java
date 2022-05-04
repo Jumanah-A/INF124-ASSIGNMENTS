@@ -45,7 +45,7 @@ public class LatestOrders extends HttpServlet {
             while (rs.next()) {
                 writer.println("<div class='past-order'>");
                 String id = rs.getString("productID");
-                String datetime = rs.getString("datetime");
+                String datetime = rs.getString("datetime").split(" ")[0];
                 writer.println("<h3>Order placed on " + datetime + "</h3>");
 
                 String productSQL = "SELECT * FROM products WHERE id='" + id + "'";
