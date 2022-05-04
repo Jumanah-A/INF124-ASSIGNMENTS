@@ -62,6 +62,7 @@ public class DetailedProduct extends HttpServlet {
         }
         writer.println("</br>");
         writer.println("</br>");
+        writer.println("<p>"+description+"</p>");
         writer.println("<a href='./add-cart?name=" + id
             + "'><button id='order' class='orderButton'>Add to Cart</button></a></div></div></div>");
 
