@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet( name = "details", urlPatterns = { "/details" })
-public class detailedProduct extends HttpServlet{
+public class DetailedProduct extends HttpServlet{
   @Override
     public void init() throws ServletException {
         super.init();
@@ -36,7 +35,7 @@ public class detailedProduct extends HttpServlet{
 
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
-          // String id = rs.getString("id");
+          String id = rs.getString("id");
           String title = rs.getString("title");
           String price = rs.getString("price");
           String description = rs.getString("description");
@@ -50,9 +49,11 @@ public class detailedProduct extends HttpServlet{
               + "></div><div class='flex-half' id='product-info'>");
           writer.println("<h1 class='product-name'>" + title + "</h1><h2 class='product-price'>Price: " + price
               + "</h2><p class='product-rating'>Rating: " + rate + "</p><p class='product-description'>" + description
-              + "</p></div></div></div>");
+              + "</p>");
+          writer.println("<a href='./add-cart?name="+id+"'><button id='order' class='orderButton'>Add to Cart</button></a></div></div></div>");
 
         }
+        writer.println("</body></html>");
 
       } catch (ClassNotFoundException e) {
         e.printStackTrace();
@@ -60,6 +61,6 @@ public class detailedProduct extends HttpServlet{
 
         e.printStackTrace();
       }
-      }
+    }
 
 }

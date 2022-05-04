@@ -42,9 +42,9 @@ public class ProductServlet extends HttpServlet {
 
                 String id = rs.getString("id");
                 String title = rs.getString("title");
-                String price =rs.getString("price");
-                String description = rs.getString("description");
-                String category = rs.getString("category");
+                // String price =rs.getString("price");
+                // String description = rs.getString("description");
+                // String category = rs.getString("category");
                 String image = rs.getString("image");
                 int rate = rs.getInt("rate");
                 String count = rs.getString("count");
