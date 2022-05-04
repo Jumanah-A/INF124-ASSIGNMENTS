@@ -1,0 +1,8 @@
+com/example/store/CartSession.class
+com/example/store/ProductServlet.class
+com/example/store/Rating.class
+com/example/store/OrderDetails.class
+com/example/store/Checkout.class
+com/example/store/LatestOrders.class
+com/example/store/ProcessOrder.class
+com/example/store/DetailedProduct.class
