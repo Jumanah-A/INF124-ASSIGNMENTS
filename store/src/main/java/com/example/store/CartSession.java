@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.*;
 
-
-@WebServlet(name="add-cart", value="/add-cart")
-public class CartSession extends HttpServlet{
+@WebServlet(name = "add-cart", value = "/add-cart")
+public class CartSession extends HttpServlet {
 
   // @Override
   // public void init() throws ServletException {
-  //   super.init();
+  // super.init();
   // }
 
   @Override
@@ -26,14 +26,9 @@ public class CartSession extends HttpServlet{
     System.out.println("HI IN CART SESSION");
     String itemId = req.getQueryString().split("=")[1];
     PrintWriter writer = resp.getWriter();
-
-    writer.println(
-        "<html><head><link rel='stylesheet' href='styles.css'><link rel='stylesheet' href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'><script src='https://kit.fontawesome.com/a904bba290.js' crossorigin='anonymous'></script></head><body>");
-    writer.println("<div class='navbar'><a class='logo'>Fashend</a></div>");
-    writer.println("<h1>HELLO CART SESSION"+itemId+"</h1></body></html>");
+    
     HttpSession session = req.getSession();
-    if(session.getAttribute("cart") == null)
-    {
+    if (session.getAttribute("cart") == null) {
       ArrayList<String> cart = new ArrayList<String>();
       cart.add(itemId);
       session.setAttribute("cart", cart);
@@ -42,7 +37,7 @@ public class CartSession extends HttpServlet{
         System.out.println(cart.get(i) + " ");
       }
 
-    }else{
+    } else {
       @SuppressWarnings("unchecked")
       List<String> cartlist = (ArrayList<String>) session.getAttribute("cart");
       cartlist.add(itemId);
@@ -54,6 +49,12 @@ public class CartSession extends HttpServlet{
 
 
 
+    RequestDispatcher rd = req.getRequestDispatcher("details?name=" + itemId);
+    rd.include(req, resp);
+    writer.println("<h1 style='text-align:center'>Item added to cart!</h1>");
+
+
+    
 
 
   }
