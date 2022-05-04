@@ -31,7 +31,7 @@ public class DetailedProduct extends HttpServlet {
       String productId = req.getQueryString().split("=")[1];
       Class.forName("com.mysql.jdbc.Driver");
       Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-          "kingstoneGX911");
+          "database101");
       Statement stmt = con.createStatement();
       String sql = "SELECT * FROM products WHERE id=" + productId + ";";
 

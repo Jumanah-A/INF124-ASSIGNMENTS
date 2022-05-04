@@ -6,16 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+// import com.mysql.cj.xdevapi.PreparableStatement;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.*;
+// import javax.servlet.*;
 import javax.servlet.http.HttpSession;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+// import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public class OrderDetails extends HttpServlet {
 
         String first = req.getParameter("fname");
         String last = req.getParameter("lname");
-        String phone = req.getParameter("lname");
+        // String phone = req.getParameter("lname");
         String email = req.getParameter("email");
         String address = req.getParameter("address");
         String city = req.getParameter("city");
@@ -66,6 +66,7 @@ public class OrderDetails extends HttpServlet {
         HttpSession session = req.getSession();
 
         // Place items into dictionary so we can find the quantity of each item in cart
+        @SuppressWarnings("unchecked")
         List<String> cartlist = (ArrayList<String>) session.getAttribute("cart");
         HashMap<String, Integer> items = new HashMap<String, Integer>();
         if (cartlist != null) {
@@ -86,7 +87,7 @@ public class OrderDetails extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             Statement stmt = con.createStatement();
 
             for (String item : items.keySet()) {

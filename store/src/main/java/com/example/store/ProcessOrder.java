@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.*;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+// import com.mysql.cj.xdevapi.PreparableStatement;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.*;
+// import java.io.PrintWriter;
+// import javax.servlet.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+// import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.ResultSet;
+// import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.Date;
@@ -40,7 +40,7 @@ public class ProcessOrder extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             con.setAutoCommit(false);
             Statement stmt = con.createStatement();
 
@@ -68,7 +68,7 @@ public class ProcessOrder extends HttpServlet {
 
             RequestDispatcher rd=req.getRequestDispatcher("./orderDetails");
             rd.forward(req, resp);
-            
+
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

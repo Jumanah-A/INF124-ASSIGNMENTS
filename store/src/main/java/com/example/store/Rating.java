@@ -6,17 +6,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+// import com.mysql.cj.xdevapi.PreparableStatement;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.*;
+// import javax.servlet.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+// import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.ResultSet;
+// import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet(name = "rating", value = "/rating")
@@ -32,7 +32,7 @@ public class Rating extends HttpServlet {
         System.out.println("RATINGS SERVLET");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "kingstoneGX911");
+            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "database101");
             con.setAutoCommit(false);
             Statement stmt = con.createStatement();
             String rating = req.getParameter("range");
