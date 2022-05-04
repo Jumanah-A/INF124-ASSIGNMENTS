@@ -12,7 +12,6 @@ https://github.com/Jumanah-A/INF124-ASSIGNMENTS
 - FAQs Page - Displays frequently asked questions.
 
 ## Requirements
-When the user submits a form to order a product, instead of sending an email from the client-side, as you did in first assignment, the request should be sent to a server-side Java Servlet that stores that information in a database table. The form should be validated to prevent insertion of bad data in your database.
 
 - [1] **About Us (about-us.html)** and **FAQs (index.html)** pages provide an overview and additional
 - [1] Requirement 1:
