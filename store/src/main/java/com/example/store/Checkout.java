@@ -41,6 +41,7 @@ public class Checkout extends HttpServlet {
         HttpSession session = req.getSession();
 
         //Place items into dictionary so we can find the quantity of each item in cart
+        @SuppressWarnings("unchecked")
         List<String> cartlist = (ArrayList<String>) session.getAttribute("cart");
         HashMap<String, Integer> items = new HashMap<String, Integer>();
         if (cartlist != null) {
@@ -56,14 +57,14 @@ public class Checkout extends HttpServlet {
         Double totalPrice = 0.0;
 
         System.out.println(items);
-        
+
         writer.println("<div id='cart-container'>");
         writer.println("<h2>Shopping Cart</h2>");
         //Acces database to get product information and print it out
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             Statement stmt = con.createStatement();
 
             for (String item : items.keySet()) {
@@ -74,7 +75,7 @@ public class Checkout extends HttpServlet {
                     String title = rs.getString("title");
                     String image = rs.getString("image");
                     Double price = rs.getDouble("price");
-                    
+
                     Double quantityPrice = items.get(item) * price;
                     totalPrice += quantityPrice;
 

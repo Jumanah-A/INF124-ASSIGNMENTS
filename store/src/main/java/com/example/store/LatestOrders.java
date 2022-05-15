@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.*;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -29,7 +27,7 @@ public class LatestOrders extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             Statement stmt = con.createStatement();
             Statement product_stmt = con.createStatement();
             String sql = "SELECT * FROM orders ORDER by datetime asc LIMIT 5";
@@ -41,12 +39,13 @@ public class LatestOrders extends HttpServlet {
             writer.println("<h2>Last 5 Orders</h1>");
             writer.println("<div id='last-orders'>");
             System.out.println("LATEST ORDERS SERVLET");
-            int orderCount = 1;
+            // int orderCount = 1;
+            // int orderCount = 1;
             while (rs.next()) {
                 writer.println("<div class='past-order'>");
                 String id = rs.getString("productID");
                 String datetime = rs.getString("datetime");
-                
+
 
                 String productSQL = "SELECT * FROM products WHERE id='" + id + "'";
                 ResultSet product_rs = product_stmt.executeQuery(productSQL);
@@ -95,7 +94,7 @@ public class LatestOrders extends HttpServlet {
                 writer.println("</form>");
                 writer.println("</div>");
                 writer.println("</div>");
-                orderCount++;
+                // orderCount++;
             }
             writer.println("</div>");
             con.close();

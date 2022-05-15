@@ -26,7 +26,7 @@ public class CartSession extends HttpServlet {
     System.out.println("HI IN CART SESSION");
     String itemId = req.getQueryString().split("=")[1];
     PrintWriter writer = resp.getWriter();
-    
+
     HttpSession session = req.getSession();
     if (session.getAttribute("cart") == null) {
       ArrayList<String> cart = new ArrayList<String>();
@@ -54,7 +54,7 @@ public class CartSession extends HttpServlet {
     writer.println("<h1 style='text-align:center'>Item added to cart!</h1>");
 
 
-    
+
 
 
   }
