@@ -32,7 +32,7 @@ public class Rating extends HttpServlet {
         System.out.println("RATINGS SERVLET");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "kingstoneGX911");
+            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "database101");
             con.setAutoCommit(false);
             Statement stmt = con.createStatement();
             String rating = req.getParameter("range");

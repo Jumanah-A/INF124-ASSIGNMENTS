@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet(name = "details", urlPatterns = { "/details" })
-public class DetailedProduct extends HttpServlet {
+public class detailedProduct extends HttpServlet {
   @Override
   public void init() throws ServletException {
     super.init();
@@ -31,7 +31,7 @@ public class DetailedProduct extends HttpServlet {
       String productId = req.getQueryString().split("=")[1];
       Class.forName("com.mysql.jdbc.Driver");
       Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-          "kingstoneGX911");
+          "database101");
       Statement stmt = con.createStatement();
       String sql = "SELECT * FROM products WHERE id=" + productId + ";";
 

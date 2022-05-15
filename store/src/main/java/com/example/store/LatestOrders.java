@@ -29,7 +29,7 @@ public class LatestOrders extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root",
-                    "kingstoneGX911");
+                    "database101");
             Statement stmt = con.createStatement();
             Statement product_stmt = con.createStatement();
             String sql = "SELECT * FROM orders ORDER by datetime asc LIMIT 5";
@@ -46,7 +46,7 @@ public class LatestOrders extends HttpServlet {
                 writer.println("<div class='past-order'>");
                 String id = rs.getString("productID");
                 String datetime = rs.getString("datetime");
-                
+
 
                 String productSQL = "SELECT * FROM products WHERE id='" + id + "'";
                 ResultSet product_rs = product_stmt.executeQuery(productSQL);
