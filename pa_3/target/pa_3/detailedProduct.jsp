@@ -12,7 +12,7 @@
 <body>
     <div class='navbar'>
         <a class='logo'>Fashend</a>
-        <a href='checkout.jsp'>Checkout</a>
+        <a href='checkout'>Checkout</a>
     </div>
     <div id='products-section'>
         <%
@@ -53,8 +53,7 @@
                 
         </a>
 
-        <% } connection.close();%>  
+        <% } %>  
     </div>
-    <jsp:include page="/latestProducts.jsp"/>
 </body>
 </html>

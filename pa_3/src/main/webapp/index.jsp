@@ -12,7 +12,7 @@
 <body>
     <div class='navbar'>
         <a class='logo'>Fashend</a>
-        <a href='checkout'>Checkout</a>
+        <a href='checkout.jsp'>Checkout</a>
     </div>
     <div id='products-section'>
         <%
@@ -31,7 +31,8 @@
                 String details = "./details?name="+id;
 
         %>
-        <div class="product" id="<%=id%>">
+        <a class="product" id="<%=id%>" href="<%=details%>">
+            
             <img src="<%=image%>" id="<%=id%>">
             <h3 class="product-title" id="<%=id%>"><%=title%></h3>
             <%
@@ -50,9 +51,10 @@
             %>
             <span class="review-count"><%=count%>&nbsp;&nbsp;reviews</span>
                 
-        </div>
+        </a>
 
-        <% } %>  
+        <% } connection.close();%>  
     </div>
+    <jsp:include page="/latestProducts.jsp"/>
 </body>
 </html>

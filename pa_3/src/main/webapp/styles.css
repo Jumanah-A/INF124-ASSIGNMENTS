@@ -133,9 +133,15 @@ html {
   .navbar a {
     cursor: pointer;
     font-size: 1.2em;
+    color: white
   }
   
   .navbar a:visited {
+    color: white;
+  }
+
+    
+  .navbar a:link {
     color: white;
   }
   
