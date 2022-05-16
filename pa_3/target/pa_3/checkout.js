@@ -28,10 +28,18 @@ function completeTax(input) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var result = xhr.responseText;
             console.log(result)
-            console.log("hello in completetax");
+            console.log("hello in completetax!!!");
 
             var taxPrice =  document.getElementById("tax-price");
-            taxPrice.innerHTML="Tax: $"+result;
+            var totalPrice = parseFloat(document.getElementById("totalPriceInput").value);
+            var totalPriceElement = document.getElementById("total-price");
+            var taxValue=(parseFloat(result)*totalPrice).toFixed(2);
+            taxPrice.innerHTML="Tax: $"+taxValue;
+            console.log("total price is"+totalPrice)
+            totalPrice=parseFloat(totalPrice)+parseFloat(taxValue);
+            document.getElementById("totalPriceInput").setAttribute('value',totalPrice.toFixed(2));
+            totalPriceElement.innerHTML = "Total Price: $" + totalPrice.toFixed(2);
+
         }
     }
 
