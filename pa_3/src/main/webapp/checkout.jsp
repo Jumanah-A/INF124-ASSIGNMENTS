@@ -12,9 +12,27 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
         <script>
-        function processOrder() {
-            console.log("presces")
-        }
+            function completeState(input) {
+                let xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var result = xhr.responseText;
+                        var states = result.split(",").slice(0,-1);
+                        console.log(states);
+                        
+                        var statesList =  document.getElementById("states");
+                        statesList.innerHTML = "";
+                        states.forEach(function(state) {
+                            var possibleState = document.createElement('option');
+                            possibleState.value = state;
+                            statesList.append(possibleState);
+                        });
+                    }
+                }
+
+                xhr.open("GET", "getState?input=" + input, true);
+                xhr.send();
+            }
         </script>
     </head>
   
@@ -121,7 +139,9 @@
                 <div>
                     <label for="state">State</label>
                     <br>
-                    <input type="text" id="state" name="state" pattern="[a-zA-Z\s]+" required>
+                    <input type="text" list="states" id="state" name="state" oninput="completeState(this.value)" pattern="[a-zA-Z\s]+" required>
+                    <datalist id="states">
+                    </datalist>
                 </div>
         
                 <div>
