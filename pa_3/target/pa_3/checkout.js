@@ -20,6 +20,25 @@ function completeState(input) {
     xhr.send();
 }
 
+function completeTax(input) {
+    console.log("hello")
+    console.log(input)
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText;
+            console.log(result)
+            console.log("hello in completetax");
+
+            var taxPrice =  document.getElementById("tax-price");
+            taxPrice.innerHTML="Tax: $"+result;
+        }
+    }
+
+    xhr.open("GET", "getTax?input=" + input, true);
+    xhr.send();
+}
+
 function updateShipping(shipping) {
     var shipping_price = document.getElementById("shipping-price");
     var totalPrice = parseFloat(document.getElementById("totalPriceInput").value);
@@ -36,6 +55,6 @@ function updateShipping(shipping) {
         totalPrice += 7;
     }
     totalPriceElement.innerHTML = "Total Price: $" + totalPrice;
-    
+
 
 }

@@ -13,7 +13,7 @@
         <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
         <script src="checkout.js"></script>
     </head>
-  
+
     <body>
         <div class='navbar'>
             <a href="index.jsp" class='logo'>Fashend</a>
@@ -21,7 +21,7 @@
         </div>
         <div id="cart-container">
             <h2>Shopping Cart</h2>
-            <% 
+            <%
                 List<String> cartlist = (ArrayList<String>) session.getAttribute("cart");
                 HashMap<String, Integer> items = new HashMap<String, Integer>();
                 if (cartlist != null) {
@@ -53,7 +53,7 @@
                         Double quantityPrice = items.get(item) * price;
                         totalPrice += quantityPrice;
                         %>
-                        
+
                         <div class="cart-item">
                             <div class="cart-item-img">
                                 <img src="<%=image%>">
@@ -71,6 +71,7 @@
                 }
             %>
             <h3 id="shipping-price">Shipping: $0</h3>
+            <h3 id="tax-price">Tax: $0</h3>
             <input value="<%=totalPrice%>" id="totalPriceInput" type="hidden">
             <h3 id="total-price">Total Price: <%=String.format("$%.2f", totalPrice)%></h3>
         </div>
@@ -82,13 +83,13 @@
                         <br>
                         <input type="text" id="fname" name="fname">
                     </div>
-            
+
                     <div>
                         <label for="lname"><i class="fa fa-user"></i> Last Name:</label>
                         <br>
                         <input type="text" id="lname" name="lname">
                     </div>
-            
+
                     <div>
                         <label for="phone">Phone number:<small>123-456-7890</small></label>
                         <br>
@@ -106,19 +107,19 @@
                         <br>
                         <input id="address" type="text" name="address" pattern="[0-9]+\s[a-zA-Z\s]+" required>
                     </div>
-            
+
                     <div>
                         <label for="city">City</label>
                         <br>
                         <input type="text" id="city" name="city" pattern="[a-zA-Z\s]+" required>
                     </div>
-            
+
                     <div>
                         <label for="zipcode">Zipcode</label>
                         <br>
-                        <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" required>
+                        <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" onblur="completeTax(this.value)" required>
                     </div>
-            
+
                     <div>
                         <label for="state">State</label>
                         <br>
@@ -126,7 +127,7 @@
                         <datalist id="states">
                         </datalist>
                     </div>
-            
+
                     <div>
                         <label for="shipping">Shipping</label><br>
                         <select name="shipping" id="shipping" onchange="updateShipping(this.value)">
@@ -135,14 +136,14 @@
                             <option value="expedited">2-days expedited ($7)</option>
                         </select>
                     </div>
-            
+
                     <div>
                         <label for="credit-card">Credit Card: <small>1234-1234-1234-1234</small></label>
                         <br>
-                        <input type="text" id="credit-card" name="credit-card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" 
+                        <input type="text" id="credit-card" name="credit-card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
                             placeholder="1234-1234-1234-1234" required>
                     </div>
-                    
+
                     <div>
                         <label for="cvc">CVC/CVV</label>
                         <br>
@@ -153,11 +154,11 @@
                         <label for="expiration">Expiration: <small>MM/YY</small></label>
                         <br>
                         <input type="text" id="expiration" name="expiration" pattern="^(0[1-9]|1[0-2])\/{1}([0-9]{2})$" placeholder="MM/YY" required>
-                        
+
                     </div>
 
                 </div>
-        
+
                 <input type="submit" value="Send Order" id="submit">
             </form>
         </div>

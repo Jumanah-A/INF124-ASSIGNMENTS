@@ -23,8 +23,8 @@
             while(rs.next()) {
                 String id = rs.getString("id");
                 String title = rs.getString("title");
-                
-                
+
+
                 String image = rs.getString("image");
                 int rate = rs.getInt("rate");
                 String count = rs.getString("count");
@@ -32,7 +32,7 @@
 
         %>
         <a class="product" id="<%=id%>" href="<%=details%>">
-            
+
             <img src="<%=image%>" id="<%=id%>">
             <h3 class="product-title" id="<%=id%>"><%=title%></h3>
             <%
@@ -50,10 +50,10 @@
                 }
             %>
             <span class="review-count"><%=count%>&nbsp;&nbsp;reviews</span>
-                
+
         </a>
 
-        <% } connection.close();%>  
+        <% } connection.close();%>
     </div>
     <jsp:include page="/latestProducts.jsp"/>
 </body>
