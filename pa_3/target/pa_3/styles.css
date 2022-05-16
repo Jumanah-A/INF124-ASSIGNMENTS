@@ -581,7 +581,7 @@ html {
     margin: 3em;
   }
   
-  #cart-container #total-price {
+  #cart-container #total-price, #shipping-price {
     text-align: right;
     width: 100%;
   }

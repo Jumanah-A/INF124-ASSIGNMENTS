@@ -11,29 +11,7 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <script src="https://kit.fontawesome.com/a904bba290.js" crossorigin="anonymous"></script>
-        <script>
-            function completeState(input) {
-                let xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        var result = xhr.responseText;
-                        var states = result.split(",").slice(0,-1);
-                        console.log(states);
-                        
-                        var statesList =  document.getElementById("states");
-                        statesList.innerHTML = "";
-                        states.forEach(function(state) {
-                            var possibleState = document.createElement('option');
-                            possibleState.value = state;
-                            statesList.append(possibleState);
-                        });
-                    }
-                }
-
-                xhr.open("GET", "getState?input=" + input, true);
-                xhr.send();
-            }
-        </script>
+        <script src="checkout.js"></script>
     </head>
   
     <body>
@@ -55,6 +33,8 @@
                             items.put(item, 1);
                         }
                     }
+                } else {
+                    %><h3>Cart Empty</h3><%
                 }
                 Double totalPrice = 0.0;
 
@@ -90,93 +70,97 @@
                     }
                 }
             %>
+            <h3 id="shipping-price">Shipping: $0</h3>
+            <input value="<%=totalPrice%>" id="totalPriceInput" type="hidden">
             <h3 id="total-price">Total Price: <%=String.format("$%.2f", totalPrice)%></h3>
-         </div>
-        <div id="form-container">
-        <form id="form" name="orderForm" action="processOrder" method="POST">
-            <div id="form-grid">
-                <div><label for="fname"><i class="fa fa-user"></i> First Name:</label>
-                    <br>
-                    <input type="text" id="fname" name="fname">
-                </div>
-        
-                <div>
-                    <label for="lname"><i class="fa fa-user"></i> Last Name:</label>
-                    <br>
-                    <input type="text" id="lname" name="lname">
-                </div>
-        
-                <div>
-                    <label for="phone">Phone number:<small>123-456-7890</small></label>
-                    <br>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                </div>
-                <div>
-                    <label for="email">Email Address</label>
-                    <br>
-                    <input id="email" type="text" name="email"
-                    pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-                    required>
-                </div>
-                <div>
-                    <label for="address">Street Address: 123 N Main Street</label>
-                    <br>
-                    <input id="address" type="text" name="address" pattern="[0-9]+\s[a-zA-Z\s]+" required>
-                </div>
-        
-                <div>
-                    <label for="city">City</label>
-                    <br>
-                    <input type="text" id="city" name="city" pattern="[a-zA-Z\s]+" required>
-                </div>
-        
-                <div>
-                    <label for="zipcode">Zipcode</label>
-                    <br>
-                    <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" required>
-                </div>
-        
-                <div>
-                    <label for="state">State</label>
-                    <br>
-                    <input type="text" list="states" id="state" name="state" oninput="completeState(this.value)" pattern="[a-zA-Z\s]+" required>
-                    <datalist id="states">
-                    </datalist>
-                </div>
-        
-                <div>
-                    <label for="shipping">Shipping</label><br>
-                    <select name="shipping" id="shipping" onchange="updatePrice()">
-                    <option value="standard" selected="selected">Standard (Free)</option>
-                    <option value="overnight">Overnight ($10)</option>
-                    <option value="expedited">2-days expedited ($7)</option>
-                    </select>
-                </div>
-        
-                <div>
-                    <label for="credit-card">Credit Card: <small>1234-1234-1234-1234</small></label>
-                    <br>
-                    <input type="text" id="credit-card" name="credit-card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" 
-                        placeholder="1234-1234-1234-1234" required>
-                </div>
-                
-                <div>
-                    <label for="cvc">CVC/CVV</label>
-                    <br>
-                    <input type="text" id="cvc" name="cvc" pattern="[0-9]{3,4}" placeholder="123" required>
-                </div>
-
-                <div>
-                    <label for="expiration">Expiration: <small>MM/YY</small></label>
-                    <br>
-                    <input type="text" id="expiration" name="expiration" pattern="^(0[1-9]|1[0-2])\/{1}([0-9]{2})$" placeholder="MM/YY" required>
-                    
-                </div>
-
-            </div>
-    
-            <input type="submit" value="Send Order" id="submit">
-        </form>
         </div>
+        <% if (cartlist != null) { %>
+        <div id="form-container">
+            <form id="form" name="orderForm" action="processOrder" method="POST">
+                <div id="form-grid">
+                    <div><label for="fname"><i class="fa fa-user"></i> First Name:</label>
+                        <br>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+            
+                    <div>
+                        <label for="lname"><i class="fa fa-user"></i> Last Name:</label>
+                        <br>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+            
+                    <div>
+                        <label for="phone">Phone number:<small>123-456-7890</small></label>
+                        <br>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    </div>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <br>
+                        <input id="email" type="text" name="email"
+                        pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                        required>
+                    </div>
+                    <div>
+                        <label for="address">Street Address: 123 N Main Street</label>
+                        <br>
+                        <input id="address" type="text" name="address" pattern="[0-9]+\s[a-zA-Z\s]+" required>
+                    </div>
+            
+                    <div>
+                        <label for="city">City</label>
+                        <br>
+                        <input type="text" id="city" name="city" pattern="[a-zA-Z\s]+" required>
+                    </div>
+            
+                    <div>
+                        <label for="zipcode">Zipcode</label>
+                        <br>
+                        <input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" required>
+                    </div>
+            
+                    <div>
+                        <label for="state">State</label>
+                        <br>
+                        <input type="text" list="states" id="state" name="state" oninput="completeState(this.value)" pattern="[a-zA-Z\s]+" required>
+                        <datalist id="states">
+                        </datalist>
+                    </div>
+            
+                    <div>
+                        <label for="shipping">Shipping</label><br>
+                        <select name="shipping" id="shipping" onchange="updateShipping(this.value)">
+                            <option value="standard" selected="selected">Standard (Free)</option>
+                            <option value="overnight">Overnight ($10)</option>
+                            <option value="expedited">2-days expedited ($7)</option>
+                        </select>
+                    </div>
+            
+                    <div>
+                        <label for="credit-card">Credit Card: <small>1234-1234-1234-1234</small></label>
+                        <br>
+                        <input type="text" id="credit-card" name="credit-card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" 
+                            placeholder="1234-1234-1234-1234" required>
+                    </div>
+                    
+                    <div>
+                        <label for="cvc">CVC/CVV</label>
+                        <br>
+                        <input type="text" id="cvc" name="cvc" pattern="[0-9]{3,4}" placeholder="123" required>
+                    </div>
+
+                    <div>
+                        <label for="expiration">Expiration: <small>MM/YY</small></label>
+                        <br>
+                        <input type="text" id="expiration" name="expiration" pattern="^(0[1-9]|1[0-2])\/{1}([0-9]{2})$" placeholder="MM/YY" required>
+                        
+                    </div>
+
+                </div>
+        
+                <input type="submit" value="Send Order" id="submit">
+            </form>
+        </div>
+        <% } %>
     </body>
 </html>
