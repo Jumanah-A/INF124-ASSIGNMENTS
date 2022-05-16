@@ -9,7 +9,7 @@ public class DatabaseHelper {
     public Connection getConnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "kingstoneGX911");
+            Connection con = DriverManager.getConnection("jdbc:mysql:// localhost:3306/" + "products", "root", "database101");
             return con;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
