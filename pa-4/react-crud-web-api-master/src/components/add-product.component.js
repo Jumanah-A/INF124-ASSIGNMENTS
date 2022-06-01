@@ -1,5 +1,6 @@
+// eslint-disable-next-line
 import React, { Component, useState } from "react";
-import ProductDataService from "../services/product.service";
+import TutorialDataService from "../services/tutorial.service";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class AddProduct extends Component {
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangeImage = this.onChangeImage.bind(this);
     this.onChangeUnits = this.onChangeUnits.bind(this);
-    
+
     this.saveTutorial = this.saveTutorial.bind(this);
     this.newTutorial = this.newTutorial.bind(this);
 
@@ -44,7 +45,7 @@ export default class AddProduct extends Component {
       price: e.target.value
     });
   }
-  
+
   onChangeCategory(e) {
     this.setState({
       category: e.target.value
@@ -74,17 +75,13 @@ export default class AddProduct extends Component {
       published: this.state.published
     };
 
-    ProductDataService.create(data)
+    TutorialDataService.create(data)
       .then(response => {
         this.setState({
           id: response.data.id,
-          title: response.title,
-          description: response.description,
-          price: response.price,
-          category: response.category,
-          image: response.image,
-          count: response.count,
-          published: response.published,
+          title: response.data.title,
+          description: response.data.description,
+          published: response.data.published,
 
           submitted: true
         });
@@ -101,10 +98,6 @@ export default class AddProduct extends Component {
       title: "",
       description: "",
       published: false,
-      price: 0,
-      category: "",
-      image:"",
-      units:0,
 
       submitted: false
     });
@@ -127,6 +120,7 @@ export default class AddProduct extends Component {
             <h2>Add a new product</h2>
             <hr></hr>
             <div id="add-form">
+              <form>
                 <div className="form-group">
                   <label htmlFor="title">Product Name</label>
                   <input
@@ -208,6 +202,7 @@ export default class AddProduct extends Component {
                 <button onClick={this.saveTutorial} className="btn btn-success">
                   Submit
                 </button>
+              </form>
             </div>
           </div>
 

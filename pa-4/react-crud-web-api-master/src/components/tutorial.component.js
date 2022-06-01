@@ -5,6 +5,10 @@ export default class Tutorial extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangePrice = this.onChangePrice.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
+    this.onChangeImage = this.onChangeImage.bind(this);
+    this.onChangeUnits = this.onChangeUnits.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getTutorial = this.getTutorial.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
@@ -16,7 +20,11 @@ export default class Tutorial extends Component {
         id: null,
         title: "",
         description: "",
-        published: false
+        published: false,
+        price: 0,
+        category: "",
+        image:"",
+        count:0
       },
       message: ""
     };
@@ -38,10 +46,53 @@ export default class Tutorial extends Component {
       };
     });
   }
+  onChangePrice(e) {
+    const price = e.target.value;
 
+    this.setState(prevState => ({
+      currentTutorial: {
+        ...prevState.currentTutorial,
+        price: price
+      }
+    }));
+  }
+  onChangeCategory(e) {
+    const category = e.target.value;
+
+    this.setState(prevState => ({
+      currentTutorial: {
+        ...prevState.currentTutorial,
+        category: category
+      }
+    }));
+  }
+  onChangeImage(e) {
+    const image = e.target.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          image: image
+        }
+      };
+    });
+  }
+  onChangeUnits(e) {
+    const count = e.target.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          count: count
+        }
+      };
+    });
+  }
   onChangeDescription(e) {
     const description = e.target.value;
-    
+
     this.setState(prevState => ({
       currentTutorial: {
         ...prevState.currentTutorial,
@@ -67,6 +118,10 @@ export default class Tutorial extends Component {
     var data = {
       id: this.state.currentTutorial.id,
       title: this.state.currentTutorial.title,
+      price: this.state.currentTutorial.price,
+      category: this.state.currentTutorial.category,
+      image:this.state.currentTutorial.image,
+      count:this.state.currentTutorial.count,
       description: this.state.currentTutorial.description,
       published: status
     };
@@ -102,7 +157,7 @@ export default class Tutorial extends Component {
       });
   }
 
-  deleteTutorial() {    
+  deleteTutorial() {
     TutorialDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);
@@ -120,7 +175,7 @@ export default class Tutorial extends Component {
       <div>
         {currentTutorial ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>Product</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -133,6 +188,46 @@ export default class Tutorial extends Component {
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="price">Price</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="price"
+                  value={currentTutorial.price}
+                  onChange={this.onChangePrice}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="category">Category</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="category"
+                  value={currentTutorial.category}
+                  onChange={this.onChangeCategory}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="image">Image URL</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="image"
+                  value={currentTutorial.image}
+                  onChange={this.onChangeImage}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="count">Number of Units</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="count"
+                  value={currentTutorial.count}
+                  onChange={this.onChangeUnits}
+                />
+              </div>
+              <div className="form-group">
                 <label htmlFor="description">Description</label>
                 <input
                   type="text"
@@ -142,7 +237,6 @@ export default class Tutorial extends Component {
                   onChange={this.onChangeDescription}
                 />
               </div>
-
               <div className="form-group">
                 <label>
                   <strong>Status:</strong>
