@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
   background-color: rgb(239, 241, 245);
 }
+img
+{
+  width:100%;
+  height: auto;
+}
 
 .list {
   text-align: left;
@@ -40,7 +45,7 @@ body {
 }
 
 .navbar-brand, .nav-link {
-  color: white; 
+  color: white;
   float: right;
 }
 

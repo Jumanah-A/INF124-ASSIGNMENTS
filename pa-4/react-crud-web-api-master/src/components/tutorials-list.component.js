@@ -115,7 +115,7 @@ export default class TutorialsList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Products List</h4>
 
           <ul className="list-group">
             {tutorials &&
@@ -143,13 +143,36 @@ export default class TutorialsList extends Component {
         <div className="col-md-6">
           {currentTutorial ? (
             <div>
-              <h4>Tutorial</h4>
+              <h4>Product</h4>
+              <div>
+                <img src={currentTutorial.image} alt="product"/>
+              </div>
               <div>
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
                 {currentTutorial.title}
               </div>
+              <div>
+                <label>
+                  <strong>Price: </strong>$
+                </label>{""}
+                {currentTutorial.price}
+              </div>
+
+              <div>
+                <label>
+                  <strong>Category:</strong>
+                </label>{" "}
+                {currentTutorial.category}
+              </div>
+              <div>
+                <label>
+                  <strong>Number of Units:</strong>
+                </label>{" "}
+                {currentTutorial.count}
+              </div>
+
               <div>
                 <label>
                   <strong>Description:</strong>
