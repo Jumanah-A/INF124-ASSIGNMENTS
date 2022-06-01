@@ -3,5 +3,16 @@ GET http://localhost:8080/
 
 ###
 
-GET http://localhost:8080/api/products
+POST http://localhost:8080/api/products
 Content-Type: application/json
+
+{
+    "title": "test",
+    "price": 123,
+    "description": "ewrawer",
+    "category": "men",
+    "image": "eaef",
+    "rate": 2,
+    "count": 2,
+    "published": 0
+}

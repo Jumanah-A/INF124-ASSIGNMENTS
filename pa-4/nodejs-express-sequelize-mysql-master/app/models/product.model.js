@@ -1,9 +1,9 @@
 module.exports = (sequelize, Sequelize) => {
     const Product = sequelize.define("product", {
-      id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-      },
+      // id: {
+      //   type: Sequelize.INTEGER,
+      //   primaryKey: true
+      // },
       title: {
         type: Sequelize.STRING(1000)
       },
@@ -25,6 +25,9 @@ module.exports = (sequelize, Sequelize) => {
       count: {
         type: Sequelize.INTEGER
       },
+      published: {
+        type: Sequelize.BOOLEAN
+    }
       
       
     }, {

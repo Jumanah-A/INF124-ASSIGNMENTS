@@ -11,11 +11,16 @@ exports.create = (req, res) => {
     });
     return;
   }
-
+  console.log("CREATING TEST");
   // Create a Tutorial
   const product = {
     title: req.body.title,
+    price: req.body.price,
     description: req.body.description,
+    category: req.body.category,
+    image: req.body.image,
+    rate: req.body.rate,
+    count: req.body.count,
     published: req.body.published ? req.body.published : false
   };
 
