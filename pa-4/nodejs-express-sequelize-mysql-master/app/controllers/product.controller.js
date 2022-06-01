@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     });
     return;
   }
-  console.log("CREATING TEST");
+  console.log("CREATING TEST" + req.body.price);
   // Create a Tutorial
   const product = {
     title: req.body.title,
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     description: req.body.description,
     category: req.body.category,
     image: req.body.image,
-    rate: req.body.rate,
+    rate: 0,
     count: req.body.count,
     published: req.body.published ? req.body.published : false
   };

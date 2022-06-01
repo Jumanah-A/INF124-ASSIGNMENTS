@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import ProductDataService from "../services/product.service";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -74,13 +74,17 @@ export default class AddProduct extends Component {
       published: this.state.published
     };
 
-    TutorialDataService.create(data)
+    ProductDataService.create(data)
       .then(response => {
         this.setState({
           id: response.data.id,
-          title: response.data.title,
-          description: response.data.description,
-          published: response.data.published,
+          title: response.title,
+          description: response.description,
+          price: response.price,
+          category: response.category,
+          image: response.image,
+          count: response.count,
+          published: response.published,
 
           submitted: true
         });
@@ -97,6 +101,10 @@ export default class AddProduct extends Component {
       title: "",
       description: "",
       published: false,
+      price: 0,
+      category: "",
+      image:"",
+      units:0,
 
       submitted: false
     });
@@ -119,7 +127,6 @@ export default class AddProduct extends Component {
             <h2>Add a new product</h2>
             <hr></hr>
             <div id="add-form">
-              <form>
                 <div className="form-group">
                   <label htmlFor="title">Product Name</label>
                   <input
@@ -201,7 +208,6 @@ export default class AddProduct extends Component {
                 <button onClick={this.saveTutorial} className="btn btn-success">
                   Submit
                 </button>
-              </form>
             </div>
           </div>
 

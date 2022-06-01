@@ -7,8 +7,8 @@ module.exports = (sequelize, Sequelize) => {
       title: {
         type: Sequelize.STRING(1000)
       },
-      PRICE: {
-        type: Sequelize.DECIMAL(5,2)
+      price: {
+        type: Sequelize.DECIMAL(10,2)
       },
       description: {
         type: Sequelize.STRING(1000)
