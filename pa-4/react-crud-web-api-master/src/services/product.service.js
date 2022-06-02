@@ -29,8 +29,20 @@ class ProductDataService {
     return http.get(`/products?title=${title}`);
   }
 
-  findByPrice(title, fromPrice, toPrice) {
-    return http.get(`/products?title=${title}&fromPrice=${fromPrice}&toPrice=${toPrice}`);
+  findByFilter(title, fromPrice, toPrice, category) {
+    var query = `/products?title=${title}`; 
+    if (category) {
+      query += `&category=${category}`;
+    }
+    if (fromPrice) {
+      query += `&fromPrice=${fromPrice}`;
+    }
+    if (toPrice) {
+      query += `&toPrice=${toPrice}`;
+    }
+
+    console.log(query)
+    return http.get(query);
   }
 }
 

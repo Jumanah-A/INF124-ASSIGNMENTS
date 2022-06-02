@@ -42,6 +42,7 @@ exports.findAll = (req, res) => {
   const title = req.query.title;
   const fromPrice = req.query.fromPrice;
   const toPrice = req.query.toPrice;
+  const category = req.query.category;
 
   var conditions = {}
 
@@ -58,6 +59,10 @@ exports.findAll = (req, res) => {
   }
   else if (toPrice) {
     conditions.price = { [Op.gte]: fromPrice};
+  }
+  
+  if (category) {
+    conditions.category = category;
   }
 
 

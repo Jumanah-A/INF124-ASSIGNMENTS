@@ -11,17 +11,20 @@ export default class ProductsList extends Component {
     this.setActiveTutorial = this.setActiveTutorial.bind(this);
     this.removeAllTutorials = this.removeAllTutorials.bind(this);
     this.searchTitle = this.searchTitle.bind(this);
-    this.filterPrice = this.filterPrice.bind(this);
+    this.searchFilter = this.searchFilter.bind(this);
     this.onChangeFromPrice = this.onChangeFromPrice.bind(this);
     this.onChangeToPrice = this.onChangeToPrice.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
 
     this.state = {
       tutorials: [],
       currentTutorial: null,
       currentIndex: -1,
       searchTitle: "",
-      fromPrice: 0,
-      toPrice: 0
+      fromPrice: null,
+      toPrice: null,
+      categories: [],
+      category: ""
     };
   }
 
@@ -47,6 +50,13 @@ export default class ProductsList extends Component {
       searchTitle: searchTitle
     });
   }
+  onChangeCategory(e) {
+    const category = e.target.value;
+
+    this.setState({
+      category: category
+    });
+  }
 
   retrieveTutorials() {
     ProductDataService.getAll()
@@ -54,7 +64,16 @@ export default class ProductsList extends Component {
         this.setState({
           tutorials: response.data
         });
-        console.log(response.data);
+        var categories = []
+        response.data.forEach(product => {
+          if (!categories.includes(product.category)) {
+            categories.push(product.category)
+          }
+        })
+        this.setState({
+          categories: categories
+        })
+        console.log(this.state.categories);
       })
       .catch(e => {
         console.log(e);
@@ -107,12 +126,12 @@ export default class ProductsList extends Component {
       });
   }
 
-  filterPrice() {
+  searchFilter() {
     this.setState({
       currentTutorial: null,
       currentIndex: -1
     });
-    ProductDataService.findByPrice(this.state.searchTitle, this.state.fromPrice, this.state.toPrice)
+    ProductDataService.findByFilter(this.state.searchTitle, this.state.fromPrice, this.state.toPrice, this.state.category)
       .then(response => {
         this.setState({
           tutorials: response.data
@@ -148,6 +167,7 @@ export default class ProductsList extends Component {
               </button>
             </div>
           </div>
+          <hr></hr>
         </div>
         <div className="col-md-12" id="price-filter">
           <p><strong>Filter by price</strong></p>
@@ -157,6 +177,7 @@ export default class ProductsList extends Component {
               type="number"
               className="form-control"
               placeholder="0.00"
+              step="0.01"
               name="from"
               onChange={this.onChangeFromPrice}
             />
@@ -165,20 +186,54 @@ export default class ProductsList extends Component {
               type="number"
               className="form-control"
               placeholder="0.00"
+              step="0.01"
               name="to"
               onChange={this.onChangeToPrice}
             />
-            <button
+            {/* <button
               className="btn btn-outline-secondary"
               type="button"
               onClick={this.filterPrice}
             >
               Apply
-            </button>
+            </button> */}
           </div>
+          <br></br>
+        </div>
+        
+        <div className="col-md-12" id="category-filter">
+          <p><strong>Filter by Category</strong></p>
+          <div className="input-group">
+            {/* <label htmlFor="categories">Categories</label> */}
+            <select name="categories" className="form-control" onChange={this.onChangeCategory}>
+              <option value="none">None</option>
+              {this.state.categories.map((category, index) => {
+                return (
+                  <option value={category} key={index}>{category}</option>
+
+                )
+              })}
+            </select>
+
+            {/* <button
+              className="btn btn-outline-secondary"
+              type="button"
+            // onClick={this.filterPrice}
+            >
+              Apply
+            </button> */}
+          </div>
+        </div>
+        <div className="col-md-12" id="apply-filter">
+          <button
+            className="btn btn-outline-secondary"
+            type="button"
+            onClick={this.searchFilter}
+          >
+            Apply Filters
+          </button>
           <hr></hr>
         </div>
-
         <div className="col-md-6">
           <h4>Products List</h4>
           <ul className="list-group">

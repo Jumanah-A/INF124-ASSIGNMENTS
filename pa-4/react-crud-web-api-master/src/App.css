@@ -72,11 +72,12 @@ img
 #price-filter input{
   margin-left: 1em;
   margin-right: 1em;
-  max-width: 30%;
 }
 
-#price-filter {
+#apply-filter {
   margin-bottom: 2em;
+  margin-top: 1em;
+  text-align: right;
 }
 
 #product-info {
