@@ -1,5 +1,6 @@
 ###
-GET http://localhost:8080/
+GET http://localhost:8080/api/products?title=short&fromPrice=10&toPrice=15
+
 
 ###
 
@@ -16,3 +17,8 @@ Content-Type: application/json
     "count": 2,
     "published": 0
 }
+
+###
+
+DELETE http://localhost:8080/api/products/30
+Content-Type: application/json

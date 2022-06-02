@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 import React, { Component, useState } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import ProductDataService from "../services/product.service";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -75,7 +75,7 @@ export default class AddProduct extends Component {
       published: this.state.published
     };
 
-    TutorialDataService.create(data)
+    ProductDataService.create(data)
       .then(response => {
         this.setState({
           id: response.data.id,
@@ -120,7 +120,6 @@ export default class AddProduct extends Component {
             <h2>Add a new product</h2>
             <hr></hr>
             <div id="add-form">
-              <form>
                 <div className="form-group">
                   <label htmlFor="title">Product Name</label>
                   <input
@@ -202,7 +201,6 @@ export default class AddProduct extends Component {
                 <button onClick={this.saveTutorial} className="btn btn-success">
                   Submit
                 </button>
-              </form>
             </div>
           </div>
 

@@ -40,11 +40,54 @@ exports.create = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
+<<<<<<< HEAD
   const category =  req.query.category;
   var categoryCondition = category ? { category: { [Op.like]: `%${category}%` } } : null;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
   Product.findAll({ where: {condition, categoryCondition} })
+=======
+  const fromPrice = req.query.fromPrice;
+  const toPrice = req.query.toPrice;
+  const category = req.query.category;
+
+  var conditions = {}
+
+  if (title) {
+    conditions.title = { [Op.like]: `%${title}%`};
+  }
+
+  console.log(toPrice, fromPrice)
+  if (fromPrice && toPrice) {
+    conditions.price = {[Op.between]: [fromPrice, toPrice]}
+  }
+  else if (fromPrice) {
+    conditions.price = { [Op.gte]: fromPrice};
+  }
+  else if (toPrice) {
+    conditions.price = { [Op.gte]: fromPrice};
+  }
+  
+  if (category) {
+    conditions.category = category;
+  }
+
+
+  if (conditions.size === 0) {
+    conditions = null;
+  }
+  console.log(conditions)
+  Product.findAll({ where: conditions
+        // {
+        //   price: {
+        //     [Op.gte]: fromPrice
+        //   },
+        //   title: { [Op.like]: `%${title}%` }
+        // }
+      
+    
+  })
+>>>>>>> 00281b4bb2e1b2ee1c673ddc3591437fc25bd4a4
     .then(data => {
       res.send(data);
     })
@@ -121,17 +164,17 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!"
+          message: "Product was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot delete Product with id=${id}. Maybe Tutorial was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id
+        message: "Could not delete Product with id=" + id
       });
     });
 };

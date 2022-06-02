@@ -32,6 +32,24 @@ class ProductDataService {
     return http.get(`/products?category=${category}`);
   }
 
+<<<<<<< HEAD
+=======
+  findByFilter(title, fromPrice, toPrice, category) {
+    var query = `/products?title=${title}`; 
+    if (category) {
+      query += `&category=${category}`;
+    }
+    if (fromPrice) {
+      query += `&fromPrice=${fromPrice}`;
+    }
+    if (toPrice) {
+      query += `&toPrice=${toPrice}`;
+    }
+
+    console.log(query)
+    return http.get(query);
+  }
+>>>>>>> 00281b4bb2e1b2ee1c673ddc3591437fc25bd4a4
 }
 
 export default new ProductDataService();
