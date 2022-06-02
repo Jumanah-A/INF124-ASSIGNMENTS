@@ -12,13 +12,24 @@ img
 
 .list {
   text-align: left;
-  max-width: 750px;
+  max-width: 100%;
   margin: auto;
+}
+
+#search-bar {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .add-component {
   max-width: 100%;
   margin: auto;
+}
+
+#product-component {
+  background-color: white;
+  padding: 2em;
+  border-radius: 25px;
 }
 
 #add-form {
@@ -32,7 +43,7 @@ img
 }
 
 .edit-form {
-  max-width: 300px;
+  max-width: 70%;
   margin: auto;
 }
 
@@ -52,4 +63,24 @@ img
 .navbar-nav {
   text-align: right;
   font-size: 1.2em;
+}
+
+#product-list-selection {
+  background-color: white;
+}
+
+#price-filter input{
+  margin-left: 1em;
+  margin-right: 1em;
+  max-width: 30%;
+}
+
+#price-filter {
+  margin-bottom: 2em;
+}
+
+#product-info {
+  background-color: white;
+  padding: 1em;
+  box-shadow: 0px 0px 25px lightgrey;
 }

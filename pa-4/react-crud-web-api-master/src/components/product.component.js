@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import ProductDataService from "../services/product.service";
 
-export default class Tutorial extends Component {
+export default class Product extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -102,7 +102,7 @@ export default class Tutorial extends Component {
   }
 
   getTutorial(id) {
-    TutorialDataService.get(id)
+    ProductDataService.get(id)
       .then(response => {
         this.setState({
           currentTutorial: response.data
@@ -126,7 +126,7 @@ export default class Tutorial extends Component {
       published: status
     };
 
-    TutorialDataService.update(this.state.currentTutorial.id, data)
+    ProductDataService.update(this.state.currentTutorial.id, data)
       .then(response => {
         this.setState(prevState => ({
           currentTutorial: {
@@ -142,14 +142,14 @@ export default class Tutorial extends Component {
   }
 
   updateTutorial() {
-    TutorialDataService.update(
+    ProductDataService.update(
       this.state.currentTutorial.id,
       this.state.currentTutorial
     )
       .then(response => {
         console.log(response.data);
         this.setState({
-          message: "The tutorial was updated successfully!"
+          message: "The product was updated successfully!"
         });
       })
       .catch(e => {
@@ -158,10 +158,10 @@ export default class Tutorial extends Component {
   }
 
   deleteTutorial() {
-    TutorialDataService.delete(this.state.currentTutorial.id)
+    ProductDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        this.props.history.push('/tutorials')
+        this.props.history.push('/products')
       })
       .catch(e => {
         console.log(e);
@@ -172,10 +172,11 @@ export default class Tutorial extends Component {
     const { currentTutorial } = this.state;
 
     return (
-      <div>
+      <div id="product-component">
         {currentTutorial ? (
           <div className="edit-form">
-            <h4>Product</h4>
+            <h3>Product</h3>
+            <hr></hr>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -280,7 +281,7 @@ export default class Tutorial extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Product...</p>
           </div>
         )}
       </div>
