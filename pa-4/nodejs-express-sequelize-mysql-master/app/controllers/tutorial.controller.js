@@ -35,9 +35,13 @@ exports.create = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const category = req.query.category
 
-  Tutorial.findAll({ where: condition })
+  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  var categoryCondition = category ? { category: { [Op.like]: `%${category}%` } } : null;
+
+
+  Tutorial.findAll({ where: {condition, categoryCondition}})
     .then(data => {
       res.send(data);
     })
@@ -48,6 +52,21 @@ exports.findAll = (req, res) => {
       });
     });
 };
+// exports.findCategory = (req, res) => {
+//     const category =  req.query.category;
+//     var categoryCondition = category ? { category: { [Op.like]: `%${category}%` } } : null;
+//     Tutorial.findAll({ where: categoryCondition })
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving tutorials."
+//       });
+//     });
+// };
+
 
 // Find a single Tutorial with an id
 exports.findOne = (req, res) => {

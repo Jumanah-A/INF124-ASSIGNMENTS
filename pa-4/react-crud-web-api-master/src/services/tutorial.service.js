@@ -25,8 +25,13 @@ class TutorialDataService {
     return http.delete(`/products`);
   }
 
-  findByTitle(title) {
-    return http.get(`/products?title=${title}`);
+  // findByTitle(title) {
+  //   return http.get(`/products?title=${title}`);
+  // }
+
+  findByCategory(category) {
+    console.log("find by catge");
+    return http.get(`/products?category=${category}`);
   }
 }
 

@@ -25,9 +25,13 @@ class ProductDataService {
     return http.delete(`/products`);
   }
 
-  findByTitle(title) {
-    return http.get(`/products?title=${title}`);
+  // findByTitle(title) {
+  //   return http.get(`/products?title=${title}`);
+  // }
+  findByCategory(category) {
+    return http.get(`/products?category=${category}`);
   }
+
 }
 
 export default new ProductDataService();
