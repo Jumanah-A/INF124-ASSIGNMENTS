@@ -162,6 +162,7 @@ export default class ProductsList extends Component {
                 className="btn btn-outline-secondary"
                 type="button"
                 onClick={this.searchTitle}
+                id="search-button"
               >
                 Search
               </button>

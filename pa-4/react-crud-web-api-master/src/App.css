@@ -51,6 +51,10 @@ img
   background-color: #181a23;
 }
 
+.nav-link:hover, .navbar-brand:hover {
+  color: rgb(58, 180, 211);
+}
+
 .navbar-brand {
   font-size: 1.5em;
 }
@@ -84,4 +88,14 @@ img
   background-color: white;
   padding: 1em;
   box-shadow: 0px 0px 25px lightgrey;
+}
+
+#search-button {
+  color: white;
+  background-color: rgb(58, 180, 211);
+  border: none;
+}
+
+#search-button:hover {
+  background-color: rgb(46, 142, 167);
 }
